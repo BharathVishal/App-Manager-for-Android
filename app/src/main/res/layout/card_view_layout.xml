@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_viewAppManager"
+    android:layout_width="match_parent"
+    android:layout_height="105dp"
+    android:layout_margin="5dp"
+    card_view:cardBackgroundColor="#FFFFFF"
+    card_view:cardCornerRadius="2dp"
+    card_view:cardElevation="2dp"
+    card_view:cardMaxElevation="5dp"
+    card_view:contentPadding="5dp">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageviewAppManager"
+            android:layout_width="69dp"
+            android:layout_height="69dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="3dp"
+            android:layout_marginStart="3dp"
+            android:padding="3dp"
+            app:srcCompat="@drawable/ic_android" />
+
+        <TextView
+            android:id="@+id/Apk_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
+            android:layout_toEndOf="@id/imageviewAppManager"
+            android:layout_toRightOf="@id/imageviewAppManager"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textColor="#000" />
+
+
+        <TextView
+            android:id="@+id/Apk_Package_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Apk_Name"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/imageviewAppManager"
+            android:layout_toRightOf="@id/imageviewAppManager"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textColor="#009688" />
+
+
+        <RelativeLayout
+            android:id="@+id/lllinstalled_On"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Apk_Package_Name"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/imageviewAppManager"
+            android:layout_toRightOf="@id/imageviewAppManager"
+            android:paddingEnd="5dp"
+            android:paddingRight="5dp"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/installed_On"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="start"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center_vertical"
+                android:maxLength="25"
+                android:paddingEnd="5dp"
+                android:paddingRight="5dp"
+                android:singleLine="true"
+                android:text="@string/installed_20_10_1995"
+                android:textColor="#009688"
+                android:textSize="10sp" />
+
+
+            <TextView
+                android:id="@+id/last_Updated_Text"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="end"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center_vertical|end"
+                android:maxLength="25"
+                android:singleLine="true"
+                android:text="@string/updated_20_10_1995"
+                android:textColor="#009688"
+                android:textSize="10sp" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/lllinstalled_On"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/imageviewAppManager"
+            android:layout_toRightOf="@+id/imageviewAppManager"
+            android:baselineAligned="false"
+            android:gravity="center_vertical"
+            android:weightSum="2">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/app_VersionName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_vertical"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/buttontv_OpenApp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="@string/open_app"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="#007965"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/buttontv_OpenAppDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/buttontv_OpenApp"
+                    android:layout_toRightOf="@+id/buttontv_OpenApp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="@string/app_details"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="#007965"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

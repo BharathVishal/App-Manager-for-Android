@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">App Manager</string>
+    <string name="app_manager">App Manager</string>
+    <string name="app_details">App Details</string>
+    <string name="open_app">Open App</string>
+    <string name="no_apps_on_your_device">No apps on your device</string>
+    <string name="updated_20_10_1995">Updated 20/10/1995</string>
+    <string name="installed_20_10_1995">Installed 20/10/1995</string>
+    <string name="No_Apps">No apps</string>
+
+
+    <string-array name="spinner_app_type">
+        <item>User Apps</item>
+        <item>System Apps</item>
+    </string-array>
+
+
+</resources>
