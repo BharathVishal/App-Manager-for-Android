@@ -9,15 +9,13 @@ A simple app manager for Android written in Kotlin. View app related info, launc
 
 &nbsp;
 ### Features :
-- View number of user apps
-- View number of system apps
-View user apps
-View system apps
-View app name and package name
-View app version
-View app installed date
-View app updated date
-Launch app 
+- View number of User/System apps
+- View User/System apps
+- View app name and package name
+- View app version
+- View app installed date
+- View app updated date
+- Launch app 
 
 
 &nbsp;
