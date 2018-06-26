@@ -9,8 +9,8 @@ A simple app manager for Android written in Kotlin. View app related info, launc
 
 &nbsp;
 ### Features :
-View number of user apps
-View number of system apps
+- View number of user apps
+- View number of system apps
 View user apps
 View system apps
 View app name and package name
@@ -19,7 +19,6 @@ View app installed date
 View app updated date
 Launch app 
 
-Battery Level, Battery type, Battery temp(in C and F), Charging Power Source, Status, Battery Voltage, Battery Health and Fast charging.
 
 &nbsp;
 ### Preview : 
