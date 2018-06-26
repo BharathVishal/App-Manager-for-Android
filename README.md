@@ -14,13 +14,13 @@ Battery Level, Battery type, Battery temp(in C and F), Charging Power Source, St
 
 &nbsp;
 ### Screenshots : 
-![Screenshot 1](https://github.com/BharathVishal/AndroidBatteryStats/blob/master/Screenshots/1.jpg?s=90)
-![Screenshot 2](https://github.com/BharathVishal/AndroidBatteryStats/blob/master/Screenshots/2.jpg?s=90)
+![Screenshot 1](https://github.com/BharathVishal/App-Manager-Android/blob/master/Screenshots/1.png?s=30)
+![Screenshot 2](https://github.com/BharathVishal/App-Manager-Android/blob/master/Screenshots/2.png?s=30)
 
 
 &nbsp;
 ### Preview : 
-![Preview](https://github.com/BharathVishal/AndroidBatteryStats/blob/master/Preview/PreviewGif.gif)
+![Preview](https://github.com/BharathVishal/App-Manager-Android/blob/master/Preview/PreviewGif.gif)
 
 
 &nbsp;
@@ -32,7 +32,7 @@ Battery Level, Battery type, Battery temp(in C and F), Charging Power Source, St
 &nbsp;
 
 ### SDK Info : 
-Min SDK : 16  | Target SDK : 27 | Gradle : 3.1.1  | Kotlin
+Min SDK : 16  | Target SDK : 27 | Gradle : 3.1.3  | Kotlin
 
 &nbsp;
 
@@ -43,5 +43,5 @@ Android Studio 3.1.3
 
 &nbsp;
 
-© 2018. Developed by Bharath Vishal G (https://github.com/BharathVishal).
+Â© 2018. Developed by Bharath Vishal G (https://github.com/BharathVishal).
 Thank you. :smile:
