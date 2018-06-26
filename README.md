@@ -14,7 +14,7 @@ Battery Level, Battery type, Battery temp(in C and F), Charging Power Source, St
 
 &nbsp;
 ### Screenshots : 
-![Screenshot 1](https://github.com/BharathVishal/App-Manager-Android/blob/master/Screenshots/1.png&s=10%)
+![Screenshot 1](https://github.com/BharathVishal/App-Manager-Android/blob/master/Screenshots/1.png&s=10)
 ![Screenshot 2](https://github.com/BharathVishal/App-Manager-Android/blob/master/Screenshots/2.png)
 
 
