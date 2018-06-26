@@ -12,18 +12,18 @@ A simple app manager for Android written in Kotlin. View app related info, launc
 Battery Level, Battery type, Battery temp(in C and F), Charging Power Source, Status, Battery Voltage, Battery Health and Fast charging.
 
 &nbsp;
-### Screenshots : 
-![Screenshot 1](https://github.com/BharathVishal/App-Manager-Android/blob/master/Screenshots/1.png?s=20)
-![Screenshot 2](https://github.com/BharathVishal/App-Manager-Android/blob/master/Screenshots/2.png?s=20)
-
-
-&nbsp;
 ### Preview : 
 ![Preview](https://github.com/BharathVishal/App-Manager-Android/blob/master/Preview/PreviewGif.gif)
 
 
 &nbsp;
+### Screenshots : 
+![Screenshot 1](https://github.com/BharathVishal/App-Manager-Android/blob/master/Screenshots/1.png?s=20)
+![Screenshot 2](https://github.com/BharathVishal/App-Manager-Android/blob/master/Screenshots/2.png?s=20)
 
+
+
+&nbsp;
 ### Year developed : 
 2018
 
