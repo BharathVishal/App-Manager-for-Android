@@ -1,7 +1,7 @@
 # App Manager Android
 A simple app manager for Android written in Kotlin. View app related info, launch or uninstall apps.
 
-
+&nbsp;
 ### Usage:
 1. Open project and sync gradle.
 2. Modify the code to suit your needs.
