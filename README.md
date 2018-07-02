@@ -1,4 +1,9 @@
 # App Manager Android
+
+<h1 align=center>
+<img src="Logo/horizontal.png" width=70%>
+</h1>
+
 A simple app manager for Android written in Kotlin. View app related info, launch or uninstall apps.
 
 &nbsp;
@@ -50,4 +55,6 @@ Android Studio 3.1.3
 &nbsp;
 
 © 2018. Developed by Bharath Vishal G (https://github.com/BharathVishal).
+Logo designed by Zularizal(https://github.com/zularizal).
+
 Thank you. :smile:
