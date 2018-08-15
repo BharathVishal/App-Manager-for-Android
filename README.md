@@ -1,7 +1,7 @@
 # App Manager Android
 
 <h1 align=center>
-<img src="Logo/horizontal.png" width=70%>
+<img src="Logo/horizontal.png" width=75%>
 </h1>
 
 A simple app manager for Android written in Kotlin. View app related info, launch or uninstall apps.
