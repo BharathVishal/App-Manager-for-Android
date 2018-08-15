@@ -81,7 +81,6 @@ class AppsAdapter(private val context1: Context, private val appInfoList: Mutabl
 
             } catch (e: ActivityNotFoundException) {
                 //e.printStackTrace();
-                //Open the generic Apps page:
                 val intent = Intent(android.provider.Settings.ACTION_MANAGE_APPLICATIONS_SETTINGS)
                 context1.startActivity(intent)
             }
