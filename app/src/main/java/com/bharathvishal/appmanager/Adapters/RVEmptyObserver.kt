@@ -25,7 +25,7 @@ class RVEmptyObserver
      */
     private fun checkIfEmpty() {
         if (emptyView != null && recyclerView.adapter != null) {
-            val emptyViewVisible = recyclerView.adapter.itemCount == 0
+            val emptyViewVisible = recyclerView.adapter!!.itemCount == 0
             emptyView.visibility = if (emptyViewVisible) View.VISIBLE else View.GONE
             recyclerView.visibility = if (emptyViewVisible) View.GONE else View.VISIBLE
         }
