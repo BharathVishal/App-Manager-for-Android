@@ -2,9 +2,9 @@ package com.bharathvishal.appmanager
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.*
 import com.bharathvishal.appmanager.Adapters.ApkInfoExtractor
@@ -31,12 +31,12 @@ class MainActivity : AppCompatActivity() {
 
     private var appManOb: AppManager? = null
 
-    private var actvityContext: Context? = null
+    private lateinit var actvityContext: Context
 
     private var apkInfoExtractor: ApkInfoExtractor? = null
 
     internal var arrAppType: Array<String>? = null
-    private var recyclerViewLayoutManager: RecyclerView.LayoutManager? = null
+    private var recyclerViewLayoutManager: androidx.recyclerview.widget.RecyclerView.LayoutManager? = null
     internal var numberOfUserApps: String? = Constants.STRING_EMPTY
     internal var numberOfSystemApps: String? = Constants.STRING_EMPTY
 
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         spinner_App_Type.adapter = spinnerArrayAdapter
 
         apkInfoExtractor = ApkInfoExtractor(this)
-        recyclerViewLayoutManager = GridLayoutManager(actvityContext, 1)
+        recyclerViewLayoutManager = androidx.recyclerview.widget.GridLayoutManager(actvityContext, 1)
 
 
         getApps(actvityContext as MainActivity)

@@ -1,6 +1,6 @@
 package com.bharathvishal.appmanager.Adapters
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 
 /**
@@ -12,7 +12,7 @@ class RVEmptyObserver
  * Constructor to set an Empty View for the RV
  */
 (
-        private val recyclerView: RecyclerView, private val emptyView: View?) : RecyclerView.AdapterDataObserver() {
+        private val recyclerView: androidx.recyclerview.widget.RecyclerView, private val emptyView: View?) : androidx.recyclerview.widget.RecyclerView.AdapterDataObserver() {
 
 
     init {

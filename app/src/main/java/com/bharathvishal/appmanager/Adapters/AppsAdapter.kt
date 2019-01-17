@@ -9,9 +9,9 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatDelegate
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -24,10 +24,10 @@ import com.bharathvishal.appmanager.Classes.AppInfo
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class AppsAdapter(private val context1: Context, private val appInfoList: MutableList<AppInfo>) : RecyclerView.Adapter<AppsAdapter.ViewHolder>() {
+class AppsAdapter(private val context1: Context, private val appInfoList: MutableList<AppInfo>) : androidx.recyclerview.widget.RecyclerView.Adapter<AppsAdapter.ViewHolder>() {
 
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
         var imageView: ImageView = view.findViewById(R.id.imageviewAppManager)
         var textViewAppName: TextView = view.findViewById(R.id.Apk_Name)
         var textViewAppPackageName: TextView = view.findViewById(R.id.Apk_Package_Name)
@@ -116,11 +116,4 @@ class AppsAdapter(private val context1: Context, private val appInfoList: Mutabl
             }
         }
     }
-
-    companion object {
-        init {
-            AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
-        }
-    }
-
 }

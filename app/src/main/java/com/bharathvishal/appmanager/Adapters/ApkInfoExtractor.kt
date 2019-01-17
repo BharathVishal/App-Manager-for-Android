@@ -8,8 +8,8 @@ import android.content.pm.PackageManager
 import android.content.pm.ResolveInfo
 import android.graphics.drawable.Drawable
 import android.net.Uri
-import android.support.annotation.Keep
-import android.support.v4.content.ContextCompat
+import androidx.annotation.Keep
+import androidx.core.content.ContextCompat
 import com.bharathvishal.appmanager.Classes.AppManager
 import com.bharathvishal.appmanager.Constants.Constants
 import com.bharathvishal.appmanager.R
