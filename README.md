@@ -43,18 +43,18 @@ A simple app manager for Android written in Kotlin. View app related info, launc
 &nbsp;
 
 ### SDK Info : 
-Min SDK : 16  | Target SDK : 29 | Gradle : 3.3.1  | Kotlin
+Min SDK : 16  | Target SDK : 29 | Gradle : 5.4.1  | Kotlin
 
 &nbsp;
 
 
 ### Android Studio Version : 
-Android Studio 3.3
+Android Studio 3.5.1
 
 
 &nbsp;
 
-© 2018. Developed by Bharath Vishal G (https://github.com/BharathVishal).
+© 2018-2019. Developed by Bharath Vishal G (https://github.com/BharathVishal).
 Logo designed by Zularizal(https://github.com/zularizal).
 
 Thank you. :smile:
