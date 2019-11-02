@@ -22,7 +22,6 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     private var adapter: AppsAdapter? = null
 
-
     internal lateinit var appList: MutableList<AppInfo>
     private lateinit var appListAlternate: MutableList<AppInfo>
     internal lateinit var userAppList: MutableList<AppInfo>
