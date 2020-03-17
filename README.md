@@ -43,13 +43,13 @@ A simple app manager for Android written in Kotlin. View app related info, launc
 &nbsp;
 
 ### SDK Info : 
-Min SDK : 16  | Target SDK : 29 | Gradle : 5.4.1  | Kotlin
+Min SDK : 16  | Target SDK : 29 | Gradle : 5.6.4  | Kotlin
 
 &nbsp;
 
 
 ### Android Studio Version : 
-Android Studio 3.5.1
+Android Studio 3.6.1
 
 
 &nbsp;
