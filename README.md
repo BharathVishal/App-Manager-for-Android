@@ -49,7 +49,7 @@ Min SDK : 16  | Target SDK : 29 | Gradle : 5.6.4  | Kotlin
 
 
 ### Android Studio Version : 
-Android Studio 3.6.1
+Android Studio 3.6.3
 
 
 &nbsp;
