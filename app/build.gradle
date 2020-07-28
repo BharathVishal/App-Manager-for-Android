@@ -3,13 +3,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     defaultConfig {
         applicationId "com.bharathvishal.appmanager"
         vectorDrawables.useSupportLibrary = true
         minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 10
+        targetSdkVersion 30
+        versionCode 12
         versionName "1.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
