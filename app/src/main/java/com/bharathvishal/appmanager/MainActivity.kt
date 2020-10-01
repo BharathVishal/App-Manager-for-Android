@@ -2,6 +2,9 @@ package com.bharathvishal.appmanager
 
 import android.content.Context
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
 import java.lang.ref.WeakReference
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
@@ -26,6 +30,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     private lateinit var appListAlternate: MutableList<AppInfo>
     internal lateinit var userAppList: MutableList<AppInfo>
     internal lateinit var systemAppList: MutableList<AppInfo>
+    internal lateinit var displayList: MutableList<AppInfo>
 
 
     private var appManOb: AppManager? = null
@@ -51,6 +56,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         userAppList = ArrayList()
         systemAppList = ArrayList()
         appListAlternate = ArrayList()
+        displayList = ArrayList()
 
         actvityContext = this
 
@@ -100,7 +106,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
                     appListAlternate.clear()
                     appList.clear()
 
-                    adapter = AppsAdapter(context, appListAlternate)
+                    adapter = AppsAdapter(context, displayList)
                 }
 
                 //UI Thread
@@ -123,15 +129,19 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
                                     val textUser = "$numberOfUserApps User apps"
                                     app_Counter_App_Manager.text = textUser
                                     appList.clear()
+                                    displayList.clear()
                                     appList.addAll(userAppList)
-                                    adapter?.updateList(userAppList)
+                                    displayList.addAll(appList)
+                                    adapter?.updateList(displayList)
                                 } else if (selectedItem == arrAppType!![1]) {
                                     //System Apps
                                     val textSystem = "$numberOfSystemApps System apps"
                                     app_Counter_App_Manager.text = textSystem
                                     appList.clear()
+                                    displayList.clear()
                                     appList.addAll(systemAppList)
-                                    adapter?.updateList(systemAppList)
+                                    displayList.addAll(appList)
+                                    adapter?.updateList(displayList)
                                 }
                             } // to close the onItemSelected
 
@@ -156,5 +166,51 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
                 e.printStackTrace()
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        menuInflater.inflate(R.menu.search_app, menu)
+
+        val menuItem = menu?.findItem(R.id.search)
+
+        if (menuItem != null) {
+            val searchView = menuItem.actionView as androidx.appcompat.widget.SearchView
+
+            searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(p0: String?): Boolean {
+                    return true
+                }
+
+                override fun onQueryTextChange(p0: String?): Boolean {
+
+                    if (!p0!!.isEmpty()) {
+                        displayList.clear()
+                        val search = p0.toLowerCase(Locale.ROOT)
+                        appList.forEach {
+                            if (it.appName?.toLowerCase(Locale.ROOT)?.contains(search)!!) {
+                                displayList.add(it)
+                            }
+
+                        }
+                        adapter?.updateList(displayList)
+                    } else {
+                        displayList.clear()
+                        displayList.addAll(appList)
+                        adapter?.updateList(displayList)
+                    }
+                    return true
+                }
+
+
+            })
+        }
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return super.onOptionsItemSelected(item)
     }
 }

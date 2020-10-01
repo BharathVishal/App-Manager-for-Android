@@ -7,6 +7,7 @@
     <string name="updated_20_10_1995">Updated 20/10/1995</string>
     <string name="installed_20_10_1995">Installed 20/10/1995</string>
     <string name="No_Apps">No apps</string>
+    <string name="search">Search</string>
 
 
     <string-array name="spinner_app_type">

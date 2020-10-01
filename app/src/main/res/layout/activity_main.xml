@@ -68,8 +68,8 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
                         android:maxLines="1"
-                        android:paddingLeft="1dp"
                         android:paddingStart="1dp"
+                        android:paddingLeft="1dp"
                         android:textColor="#000"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -106,8 +106,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="30dp"
                     android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
                     android:fontFamily="sans-serif-condensed"
                     android:maxLines="3"
                     android:text="@string/no_apps_on_your_device"
