@@ -48,8 +48,6 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         val view = binding.root
         setContentView(view)
 
-        setContentView(view)
-
         appList = ArrayList()
         arrAppType = arrayOf("User Apps", "System Apps")
 
