@@ -13,7 +13,7 @@ import com.bharathvishal.appmanager.Classes.AppInfo
 import com.bharathvishal.appmanager.Classes.AppManager
 import com.bharathvishal.appmanager.Constants.Constants
 import com.bharathvishal.appmanager.R.array.spinner_app_type
-import kotlinx.android.synthetic.main.activity_main.*
+import com.bharathvishal.appmanager.databinding.ActivityMainBinding
 import kotlinx.coroutines.*
 import java.lang.ref.WeakReference
 import java.util.*
@@ -39,9 +39,16 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     internal var numberOfUserApps: String? = Constants.STRING_EMPTY
     internal var numberOfSystemApps: String? = Constants.STRING_EMPTY
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+        setContentView(view)
 
         appList = ArrayList()
         arrAppType = arrayOf("User Apps", "System Apps")
@@ -54,8 +61,12 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
         actvityContext = this
 
-        val spinnerArrayAdapter = ArrayAdapter.createFromResource(actvityContext, spinner_app_type, R.layout.support_simple_spinner_dropdown_item)
-        spinner_App_Type.adapter = spinnerArrayAdapter
+        val spinnerArrayAdapter = ArrayAdapter.createFromResource(
+            actvityContext,
+            spinner_app_type,
+            R.layout.support_simple_spinner_dropdown_item
+        )
+        binding.spinnerAppType.adapter = spinnerArrayAdapter
 
         apkInfoExtractor = ApkInfoExtractor(this)
         recyclerViewLayoutManager = GridLayoutManager(actvityContext, 1)
@@ -63,8 +74,8 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
         getApps(actvityContext)
 
-        spinner_App_Type.isSelected = false
-        spinner_App_Type.isEnabled = false
+        binding.spinnerAppType.isSelected = false
+        binding.spinnerAppType.isEnabled = false
 
     }
 
@@ -106,49 +117,55 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
                 //UI Thread
                 withContext(Dispatchers.Main) {
 
-                    recycler_view_Apps.layoutManager = recyclerViewLayoutManager
+                    binding.recyclerViewApps.layoutManager = recyclerViewLayoutManager
 
                     if (adapter!!.itemCount > 0) {
-                        recycler_view_Apps.adapter = adapter
+                        binding.recyclerViewApps.adapter = adapter
                         val text = "$numberOfUserApps User apps"
-                        app_Counter_App_Manager.text = text
+                        binding.appCounterAppManager.text = text
 
-                        spinner_App_Type.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                        binding.spinnerAppType.onItemSelectedListener =
+                            object : AdapterView.OnItemSelectedListener {
+                                override fun onItemSelected(
+                                    parent: AdapterView<*>,
+                                    view: View,
+                                    position: Int,
+                                    id: Long
+                                ) {
 
-                                val selectedItem = parent.getItemAtPosition(position).toString()
+                                    val selectedItem = parent.getItemAtPosition(position).toString()
 
-                                if (selectedItem == arrAppType!![0]) {
-                                    //User Apps
-                                    val textUser = "$numberOfUserApps User apps"
-                                    app_Counter_App_Manager.text = textUser
-                                    appList.clear()
-                                    appList.addAll(userAppList)
-                                    adapter?.updateList(userAppList)
-                                } else if (selectedItem == arrAppType!![1]) {
-                                    //System Apps
-                                    val textSystem = "$numberOfSystemApps System apps"
-                                    app_Counter_App_Manager.text = textSystem
-                                    appList.clear()
-                                    appList.addAll(systemAppList)
-                                    adapter?.updateList(systemAppList)
+                                    if (selectedItem == arrAppType!![0]) {
+                                        //User Apps
+                                        val textUser = "$numberOfUserApps User apps"
+                                        binding.appCounterAppManager.text = textUser
+                                        appList.clear()
+                                        appList.addAll(userAppList)
+                                        adapter?.updateList(userAppList)
+                                    } else if (selectedItem == arrAppType!![1]) {
+                                        //System Apps
+                                        val textSystem = "$numberOfSystemApps System apps"
+                                        binding.appCounterAppManager.text = textSystem
+                                        appList.clear()
+                                        appList.addAll(systemAppList)
+                                        adapter?.updateList(systemAppList)
+                                    }
+                                } // to close the onItemSelected
+
+                                override fun onNothingSelected(parent: AdapterView<*>) {
+
                                 }
-                            } // to close the onItemSelected
-
-                            override fun onNothingSelected(parent: AdapterView<*>) {
-
                             }
-                        }
 
-                        spinner_App_Type.isEnabled = true
-                        spinner_App_Type.setSelection(0, true)
+                        binding.spinnerAppType.isEnabled = true
+                        binding.spinnerAppType.setSelection(0, true)
 
                     } else {
-                        app_Counter_App_Manager.text = getString(R.string.No_Apps)
-                        apps_recycler_layoout_ll.visibility = View.GONE
-                        recycler_view_Apps.visibility = View.GONE
-                        spinner_App_Type.isEnabled = false
-                        list_empty_Apps_Appmanager.visibility = View.VISIBLE
+                        binding.appCounterAppManager.text = getString(R.string.No_Apps)
+                        binding.appsRecyclerLayooutLl.visibility = View.GONE
+                        binding.recyclerViewApps.visibility = View.GONE
+                        binding.spinnerAppType.isEnabled = false
+                        binding.listEmptyAppsAppmanager.visibility = View.VISIBLE
                     }
 
                 }
