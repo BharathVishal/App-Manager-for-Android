@@ -2,9 +2,10 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_viewAppManager"
     android:layout_width="match_parent"
-    android:layout_height="105dp"
+    android:layout_height="135dp"
     android:layout_margin="5dp"
     card_view:cardBackgroundColor="#FFFFFF"
     card_view:cardCornerRadius="2dp"
@@ -17,27 +18,23 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/imageviewAppManager"
-            android:layout_width="69dp"
-            android:layout_height="69dp"
-            android:layout_alignParentLeft="true"
+            android:id="@+id/imageviewAppManagerAppLogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="3dp"
             android:layout_marginStart="3dp"
             android:padding="3dp"
             app:srcCompat="@drawable/ic_android" />
 
         <TextView
             android:id="@+id/Apk_Name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="6dp"
-            android:layout_toEndOf="@id/imageviewAppManager"
-            android:layout_toRightOf="@id/imageviewAppManager"
+            android:layout_toEndOf="@id/imageviewAppManagerAppLogo"
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:singleLine="true"
@@ -45,14 +42,12 @@
 
 
         <TextView
-            android:id="@+id/Apk_Package_Name"
-            android:layout_width="wrap_content"
+            android:id="@+id/Apk_Package_NameFull"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/Apk_Name"
-            android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:layout_toEndOf="@id/imageviewAppManager"
-            android:layout_toRightOf="@id/imageviewAppManager"
+            android:layout_toEndOf="@id/imageviewAppManagerAppLogo"
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:singleLine="true"
@@ -61,53 +56,53 @@
 
         <RelativeLayout
             android:id="@+id/lllinstalled_On"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Apk_Package_Name"
-            android:layout_marginLeft="8dp"
+            android:layout_below="@id/Apk_Package_NameFull"
             android:layout_marginStart="8dp"
-            android:layout_toEndOf="@id/imageviewAppManager"
-            android:layout_toRightOf="@id/imageviewAppManager"
+            android:layout_toEndOf="@id/imageviewAppManagerAppLogo"
             android:paddingEnd="5dp"
-            android:paddingRight="5dp"
-            android:weightSum="2">
+            android:weightSum="2"
+            tools:ignore="RtlSymmetry">
 
             <TextView
-                android:id="@+id/installed_On"
-                android:layout_width="115dp"
+                android:id="@+id/installed_On_TV"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_gravity="start"
                 android:ellipsize="end"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_vertical"
-                android:maxLength="25"
+                android:maxLength="50"
                 android:paddingEnd="5dp"
-                android:paddingRight="5dp"
+                android:layout_marginBottom="1dp"
                 android:singleLine="true"
                 android:text="@string/installed_20_10_1995"
                 android:textColor="#009688"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                tools:ignore="RtlSymmetry,SmallSp" />
 
 
             <TextView
-                android:id="@+id/last_Updated_Text"
-                android:layout_width="115dp"
+                android:id="@+id/last_Updated_TV"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="end"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/installed_On_TV"
+                android:layout_gravity="start"
+                android:layout_marginEnd="3dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:paddingEnd="5dp"
                 android:ellipsize="end"
                 android:fontFamily="sans-serif-condensed"
-                android:gravity="center_vertical|end"
                 android:maxLength="25"
                 android:singleLine="true"
                 android:text="@string/updated_20_10_1995"
                 android:textColor="#009688"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                tools:ignore="RtlSymmetry,SmallSp" />
 
         </RelativeLayout>
 
@@ -116,11 +111,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/lllinstalled_On"
-            android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:layout_toEndOf="@+id/imageviewAppManager"
-            android:layout_toRightOf="@+id/imageviewAppManager"
+            android:layout_toEndOf="@+id/imageviewAppManagerAppLogo"
             android:baselineAligned="false"
+            android:orientation="vertical"
             android:gravity="center_vertical"
             android:weightSum="2">
 
@@ -135,9 +129,10 @@
 
 
                 <TextView
-                    android:id="@+id/app_VersionName"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/app_VersionNameTV"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="1dp"
                     android:layout_gravity="start|center_vertical"
                     android:layout_marginEnd="1dp"
                     android:layout_marginLeft="1dp"
@@ -156,45 +151,46 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
                 android:layout_marginEnd="3dp"
-                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:gravity="end"
                 android:orientation="horizontal">
 
 
                 <Button
-                    android:id="@+id/buttontv_OpenApp"
+                    android:id="@+id/buttontv_OpenAppBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
+                    android:layout_height="35dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
+                    android:layout_marginEnd="5dp"
                     android:background="?android:attr/selectableItemBackground"
                     android:fontFamily="sans-serif-condensed"
-                    android:gravity="center_vertical"
+                    android:gravity="start|center_vertical"
                     android:singleLine="true"
                     android:text="@string/open_app"
                     android:textAlignment="center"
                     android:textAllCaps="true"
                     android:textColor="#007965"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:ignore="RtlCompat" />
 
                 <Button
-                    android:id="@+id/buttontv_OpenAppDetails"
+                    android:id="@+id/buttontv_OpenAppDetailsBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="35dp"
                     android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/buttontv_OpenApp"
-                    android:layout_toRightOf="@+id/buttontv_OpenApp"
+                    android:layout_toEndOf="@+id/buttontv_OpenAppBtn"
                     android:background="?android:attr/selectableItemBackground"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center_vertical"
                     android:singleLine="true"
+                    android:layout_marginEnd="1dp"
                     android:text="@string/app_details"
                     android:textAlignment="center"
                     android:textAllCaps="true"
                     android:textColor="#007965"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:ignore="RtlCompat" />
 
             </RelativeLayout>
 

@@ -24,18 +24,19 @@ import com.bharathvishal.appmanager.Classes.AppInfo
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class AppsAdapter(private val context1: Context, private val appInfoList: MutableList<AppInfo>) : androidx.recyclerview.widget.RecyclerView.Adapter<AppsAdapter.ViewHolder>() {
+class AppsAdapter(private val context1: Context, private val appInfoList: MutableList<AppInfo>) :
+    androidx.recyclerview.widget.RecyclerView.Adapter<AppsAdapter.ViewHolder>() {
 
 
     class ViewHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
-        var imageView: ImageView = view.findViewById(R.id.imageviewAppManager)
+        var imageView: ImageView = view.findViewById(R.id.imageviewAppManagerAppLogo)
         var textViewAppName: TextView = view.findViewById(R.id.Apk_Name)
-        var textViewAppPackageName: TextView = view.findViewById(R.id.Apk_Package_Name)
-        var textViewAppVersion: TextView = view.findViewById(R.id.app_VersionName)
-        var textViewInstalledOn: TextView = view.findViewById(R.id.installed_On)
-        var textViewLastUpdateed: TextView = view.findViewById(R.id.last_Updated_Text)
-        var openAppDetails: Button = view.findViewById(R.id.buttontv_OpenAppDetails)
-        var openApps: Button = view.findViewById(R.id.buttontv_OpenApp)
+        var textViewAppPackageName: TextView = view.findViewById(R.id.Apk_Package_NameFull)
+        var textViewAppVersion: TextView = view.findViewById(R.id.app_VersionNameTV)
+        var textViewInstalledOn: TextView = view.findViewById(R.id.installed_On_TV)
+        var textViewLastUpdateed: TextView = view.findViewById(R.id.last_Updated_TV)
+        var openAppDetails: Button = view.findViewById(R.id.buttontv_OpenAppDetailsBtn)
+        var openApps: Button = view.findViewById(R.id.buttontv_OpenAppBtn)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppsAdapter.ViewHolder {
@@ -55,7 +56,8 @@ class AppsAdapter(private val context1: Context, private val appInfoList: Mutabl
         val uri = appInfoList[position].appDrawableURI
         try {
             if (uri != Uri.EMPTY)
-                Glide.with(context1).load(uri).apply(RequestOptions().error(R.drawable.ic_android)).into(viewHolder.imageView)
+                Glide.with(context1).load(uri).apply(RequestOptions().error(R.drawable.ic_android))
+                    .into(viewHolder.imageView)
             else {
                 val img = ContextCompat.getDrawable(context1, R.drawable.ic_android)
                 viewHolder.imageView.setImageDrawable(img)
@@ -89,7 +91,8 @@ class AppsAdapter(private val context1: Context, private val appInfoList: Mutabl
 
         viewHolder.openApps.setOnClickListener {
             try {
-                val intent = context1.packageManager.getLaunchIntentForPackage(applicationPackageName!!)
+                val intent =
+                    context1.packageManager.getLaunchIntentForPackage(applicationPackageName!!)
                 if (intent != null) {
                     context1.startActivity(intent)
                 } else {

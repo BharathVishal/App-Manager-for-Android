@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.*
-import com.bharathvishal.appmanager.Adapters.ApkInfoExtractor
+import com.bharathvishal.appmanager.Adapters.ApkInformationExtractor
 import com.bharathvishal.appmanager.Adapters.AppsAdapter
 import com.bharathvishal.appmanager.Classes.AppInfo
 import com.bharathvishal.appmanager.Classes.AppManager
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
     private lateinit var actvityContext: Context
 
-    private var apkInfoExtractor: ApkInfoExtractor? = null
+    private var apkInformationExtractor: ApkInformationExtractor? = null
 
     internal var arrAppType: Array<String>? = null
     private var recyclerViewLayoutManager: RecyclerView.LayoutManager? = null
@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         )
         binding.spinnerAppType.adapter = spinnerArrayAdapter
 
-        apkInfoExtractor = ApkInfoExtractor(this)
+        apkInformationExtractor = ApkInformationExtractor(this)
         recyclerViewLayoutManager = GridLayoutManager(actvityContext, 1)
 
 
@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
             try {
                 val context1 = contextRef.get()
 
-                appManOb = ApkInfoExtractor(context).appManagerInitValues()
+                appManOb = ApkInformationExtractor(context).appManagerInitValues()
 
                 if (appManOb != null) {
                     numberOfUserApps = Constants.STRING_EMPTY + appManOb!!.userAppSize

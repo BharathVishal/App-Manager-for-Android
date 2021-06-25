@@ -23,7 +23,7 @@ import java.util.*
  */
 
 @Keep
-class ApkInfoExtractor(private val context1: Context) {
+class ApkInformationExtractor(private val context1: Context) {
 
 
     fun appManagerInitValues(): AppManager {
@@ -45,8 +45,8 @@ class ApkInfoExtractor(private val context1: Context) {
 
                 ob.userAppSize = ob.userAppSize + 1
                 val appPackageName = activityInfo.applicationInfo.packageName.toString()
-                ob.userApps.add(AppInfo(getAppName(appPackageName), appPackageName, getFirstInstalled(appPackageName),
-                        getLastUpdateed(appPackageName), getAppVersion(appPackageName),
+                ob.userApps.add(AppInfo(getAppName(appPackageName), appPackageName, getFirstInstalledDate(appPackageName),
+                        getLastUpdatedDate(appPackageName), getAppVersion(appPackageName),
                         getAppIconURIByPackageName(appPackageName)))
 
                 ob.userApps.sortWith(Comparator { o1, o2 -> o1.appName!!.compareTo(o2.appName!!, ignoreCase = true) })
@@ -55,8 +55,8 @@ class ApkInfoExtractor(private val context1: Context) {
                 ob.systemAppSize = ob.systemAppSize + 1
                 val appPackageName = activityInfo.applicationInfo.packageName.toString()
 
-                ob.systemApps.add(AppInfo(getAppName(appPackageName), appPackageName, getFirstInstalled(appPackageName),
-                        getLastUpdateed(appPackageName), getAppVersion(appPackageName),
+                ob.systemApps.add(AppInfo(getAppName(appPackageName), appPackageName, getFirstInstalledDate(appPackageName),
+                        getLastUpdatedDate(appPackageName), getAppVersion(appPackageName),
                         getAppIconURIByPackageName(appPackageName)))
 
                 ob.systemApps.sortWith(Comparator { o1, o2 -> o1.appName!!.compareTo(o2.appName!!, ignoreCase = true) })
@@ -226,7 +226,7 @@ class ApkInfoExtractor(private val context1: Context) {
         return "v$versionName"
     }
 
-    private fun getFirstInstalled(ApkPackageName: String): String {
+    private fun getFirstInstalledDate(ApkPackageName: String): String {
         var firstInstalled = Constants.SYMBOL_HYPHEN
         val manager = context1.packageManager
 
@@ -245,7 +245,7 @@ class ApkInfoExtractor(private val context1: Context) {
     }
 
 
-    private fun getLastUpdateed(ApkPackageName: String): String {
+    private fun getLastUpdatedDate(ApkPackageName: String): String {
         var lastUpdated = Constants.SYMBOL_HYPHEN
         val manager = context1.packageManager
 
