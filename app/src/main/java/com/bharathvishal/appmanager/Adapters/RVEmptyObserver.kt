@@ -1,12 +1,12 @@
 package com.bharathvishal.appmanager.Adapters
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 
 /**
  * Created by Bharath Vishal on 26-06-2018.
  * Recyclerview EmptyObserver
  */
+@Suppress("PackageName")
 class RVEmptyObserver
 /**
  * Constructor to set an Empty View for the RV

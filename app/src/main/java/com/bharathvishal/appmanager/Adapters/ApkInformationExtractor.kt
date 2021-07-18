@@ -45,21 +45,45 @@ class ApkInformationExtractor(private val context1: Context) {
 
                 ob.userAppSize = ob.userAppSize + 1
                 val appPackageName = activityInfo.applicationInfo.packageName.toString()
-                ob.userApps.add(AppInfo(getAppName(appPackageName), appPackageName, getFirstInstalledDate(appPackageName),
-                        getLastUpdatedDate(appPackageName), getAppVersion(appPackageName),
-                        getAppIconURIByPackageName(appPackageName)))
+                ob.userApps.add(
+                    AppInfo(
+                        getAppName(appPackageName),
+                        appPackageName,
+                        getFirstInstalledDate(appPackageName),
+                        getLastUpdatedDate(appPackageName),
+                        getAppVersion(appPackageName),
+                        getAppIconURIByPackageName(appPackageName)
+                    )
+                )
 
-                ob.userApps.sortWith(Comparator { o1, o2 -> o1.appName!!.compareTo(o2.appName!!, ignoreCase = true) })
+                ob.userApps.sortWith { o1, o2 ->
+                    o1.appName!!.compareTo(
+                        o2.appName!!,
+                        ignoreCase = true
+                    )
+                }
 
             } else if (isSystemPackage(resolveInfo)) {
                 ob.systemAppSize = ob.systemAppSize + 1
                 val appPackageName = activityInfo.applicationInfo.packageName.toString()
 
-                ob.systemApps.add(AppInfo(getAppName(appPackageName), appPackageName, getFirstInstalledDate(appPackageName),
-                        getLastUpdatedDate(appPackageName), getAppVersion(appPackageName),
-                        getAppIconURIByPackageName(appPackageName)))
+                val add = ob.systemApps.add(
+                    AppInfo(
+                        getAppName(appPackageName),
+                        appPackageName,
+                        getFirstInstalledDate(appPackageName),
+                        getLastUpdatedDate(appPackageName),
+                        getAppVersion(appPackageName),
+                        getAppIconURIByPackageName(appPackageName)
+                    )
+                )
 
-                ob.systemApps.sortWith(Comparator { o1, o2 -> o1.appName!!.compareTo(o2.appName!!, ignoreCase = true) })
+                ob.systemApps.sortWith { o1, o2 ->
+                    o1.appName!!.compareTo(
+                        o2.appName!!,
+                        ignoreCase = true
+                    )
+                }
             }
         }
         return ob
@@ -141,19 +165,12 @@ class ApkInformationExtractor(private val context1: Context) {
 
 
     fun getAppIconByPackageName(ApkTempPackageName: String): Drawable? {
-
-        val drawable: Drawable?
-
-        drawable = try {
+        val drawable: Drawable? = try {
             context1.packageManager.getApplicationIcon(ApkTempPackageName)
-
         } catch (e: PackageManager.NameNotFoundException) {
-
             e.printStackTrace()
-
             ContextCompat.getDrawable(context1, R.mipmap.ic_launcher)
         }
-
         return drawable
     }
 
@@ -185,16 +202,9 @@ class ApkInformationExtractor(private val context1: Context) {
         val packageManager = context1.packageManager
 
         try {
-
             applicationInfo = packageManager.getApplicationInfo(ApkPackageName, 0)
-
-            if (applicationInfo != null) {
-
-                name = packageManager.getApplicationLabel(applicationInfo) as String
-            }
-
+            name = packageManager.getApplicationLabel(applicationInfo) as String
         } catch (e: PackageManager.NameNotFoundException) {
-
             e.printStackTrace()
         }
 
@@ -204,25 +214,14 @@ class ApkInformationExtractor(private val context1: Context) {
 
     private fun getAppVersion(ApkPackageName: String): String {
         var versionName = ""
-
         val applicationInfo: ApplicationInfo?
-
         val packageManager = context1.packageManager
-
         try {
-
             applicationInfo = packageManager.getApplicationInfo(ApkPackageName, 0)
-
-            if (applicationInfo != null) {
-
-                versionName = packageManager.getPackageInfo(ApkPackageName, 0).versionName
-            }
-
+            versionName = packageManager.getPackageInfo(ApkPackageName, 0).versionName
         } catch (e: PackageManager.NameNotFoundException) {
-
             e.printStackTrace()
         }
-
         return "v$versionName"
     }
 

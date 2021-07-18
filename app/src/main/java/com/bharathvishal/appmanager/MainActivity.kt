@@ -78,14 +78,13 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     }
 
 
-    fun getApps(context: Context) {
+    private fun getApps(context: Context) {
         val contextRef: WeakReference<Context> = WeakReference(context)
 
         //Coroutine
         launch(Dispatchers.Default) {
             try {
                 val context1 = contextRef.get()
-
                 appManOb = ApkInformationExtractor(context).appManagerInitValues()
 
                 if (appManOb != null) {
