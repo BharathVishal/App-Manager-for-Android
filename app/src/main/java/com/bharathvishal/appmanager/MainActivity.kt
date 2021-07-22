@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     internal lateinit var userAppList: MutableList<AppInfo>
     internal lateinit var systemAppList: MutableList<AppInfo>
 
-
     private var appManOb: AppManager? = null
 
     private lateinit var actvityContext: Context
