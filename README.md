@@ -4,7 +4,7 @@
 <img src="Logo/horizontal.png" width=75%>
 </h1>
 
-A simple app manager for Android written in Kotlin. View app related info, launch or uninstall apps.
+An app manager for Android written in Kotlin. View app related info, launch or uninstall apps.
 
 &nbsp;
 ### Usage:
