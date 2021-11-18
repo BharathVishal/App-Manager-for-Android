@@ -163,7 +163,6 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
                         binding.spinnerAppType.isEnabled = false
                         binding.listEmptyAppsAppmanager.visibility = View.VISIBLE
                     }
-
                 }
             } catch (e: java.lang.Exception) {
                 e.printStackTrace()
