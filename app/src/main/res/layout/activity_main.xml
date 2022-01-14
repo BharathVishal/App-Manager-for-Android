@@ -3,27 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAFAFA"
     android:clipToPadding="false"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/app_name" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        card_view:cardBackgroundColor="#FFFFFF"
-        card_view:cardCornerRadius="2dp"
-        card_view:cardElevation="2dp"
-        card_view:cardMaxElevation="5dp">
-
+        android:layout_margin="16dp"
+        card_view:cardCornerRadius="12dp"
+        card_view:cardElevation="1dp"
+        card_view:cardMaxElevation="1dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
@@ -43,7 +50,6 @@
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-condensed"
                     android:padding="5dp"
-                    android:textColor="#000"
                     android:textSize="12sp" />
 
 
@@ -71,8 +77,6 @@
                         android:gravity="center_vertical"
                         android:maxLines="1"
                         android:paddingStart="1dp"
-                        android:paddingLeft="1dp"
-                        android:textColor="#000"
                         android:textSize="15sp" />
                 </LinearLayout>
 
@@ -114,7 +118,6 @@
                     android:maxLines="3"
                     android:text="@string/no_apps_on_your_device"
                     android:textAllCaps="false"
-                    android:textColor="#000"
                     android:textSize="16sp"
                     android:textStyle="normal"
                     android:visibility="gone" />

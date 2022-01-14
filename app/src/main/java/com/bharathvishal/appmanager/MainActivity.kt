@@ -14,6 +14,7 @@ import com.bharathvishal.appmanager.Classes.AppManager
 import com.bharathvishal.appmanager.Constants.Constants
 import com.bharathvishal.appmanager.R.array.spinner_app_type
 import com.bharathvishal.appmanager.databinding.ActivityMainBinding
+import com.google.android.material.color.DynamicColors
 import kotlinx.coroutines.*
 import java.lang.ref.WeakReference
 import java.util.*
@@ -42,6 +43,12 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        try {
+            DynamicColors.applyIfAvailable(this)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root

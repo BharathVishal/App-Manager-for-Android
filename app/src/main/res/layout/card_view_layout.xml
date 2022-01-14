@@ -5,12 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_viewAppManager"
     android:layout_width="match_parent"
-    android:layout_height="135dp"
+    android:layout_height="145dp"
     android:layout_margin="5dp"
-    card_view:cardBackgroundColor="#FFFFFF"
-    card_view:cardCornerRadius="2dp"
-    card_view:cardElevation="2dp"
-    card_view:cardMaxElevation="5dp"
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="1dp"
+    card_view:cardMaxElevation="1dp"
     card_view:contentPadding="5dp">
 
     <RelativeLayout
@@ -37,8 +36,7 @@
             android:layout_toEndOf="@id/imageviewAppManagerAppLogo"
             android:ellipsize="end"
             android:gravity="center_vertical"
-            android:singleLine="true"
-            android:textColor="#000" />
+            android:singleLine="true" />
 
 
         <TextView
@@ -51,7 +49,7 @@
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:singleLine="true"
-            android:textColor="#009688" />
+            android:textColor="?attr/colorTertiary" />
 
 
         <RelativeLayout
@@ -71,15 +69,15 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_gravity="start"
+                android:layout_marginBottom="1dp"
                 android:ellipsize="end"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_vertical"
                 android:maxLength="50"
                 android:paddingEnd="5dp"
-                android:layout_marginBottom="1dp"
                 android:singleLine="true"
                 android:text="@string/installed_20_10_1995"
-                android:textColor="#009688"
+                android:textColor="?attr/colorTertiary"
                 android:textSize="10sp"
                 tools:ignore="RtlSymmetry,SmallSp" />
 
@@ -88,19 +86,19 @@
                 android:id="@+id/last_Updated_TV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
                 android:layout_below="@+id/installed_On_TV"
+                android:layout_alignParentStart="true"
                 android:layout_gravity="start"
-                android:layout_marginEnd="3dp"
                 android:layout_marginTop="1dp"
+                android:layout_marginEnd="3dp"
                 android:layout_marginBottom="1dp"
-                android:paddingEnd="5dp"
                 android:ellipsize="end"
                 android:fontFamily="sans-serif-condensed"
                 android:maxLength="25"
+                android:paddingEnd="5dp"
                 android:singleLine="true"
                 android:text="@string/updated_20_10_1995"
-                android:textColor="#009688"
+                android:textColor="?attr/colorTertiary"
                 android:textSize="10sp"
                 tools:ignore="RtlSymmetry,SmallSp" />
 
@@ -158,38 +156,38 @@
 
                 <Button
                     android:id="@+id/buttontv_OpenAppBtn"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginEnd="5dp"
-                    android:background="?android:attr/selectableItemBackground"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="start|center_vertical"
                     android:singleLine="true"
                     android:text="@string/open_app"
                     android:textAlignment="center"
-                    android:textAllCaps="true"
-                    android:textColor="#007965"
+                    android:textAllCaps="false"
                     android:textSize="12sp"
+                    app:strokeWidth="0.5sp"
                     tools:ignore="RtlCompat" />
 
                 <Button
                     android:id="@+id/buttontv_OpenAppDetailsBtn"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
+                    android:layout_marginEnd="1dp"
                     android:layout_toEndOf="@+id/buttontv_OpenAppBtn"
-                    android:background="?android:attr/selectableItemBackground"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center_vertical"
                     android:singleLine="true"
-                    android:layout_marginEnd="1dp"
                     android:text="@string/app_details"
                     android:textAlignment="center"
-                    android:textAllCaps="true"
-                    android:textColor="#007965"
+                    android:textAllCaps="false"
                     android:textSize="12sp"
+                    app:strokeWidth="0.5sp"
                     tools:ignore="RtlCompat" />
 
             </RelativeLayout>
