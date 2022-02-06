@@ -90,8 +90,8 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         //Coroutine
         launch(Dispatchers.Default) {
             try {
-                val context1 = contextRef.get()
-                appManOb = ApkInformationExtractor(context).appManagerInitValues()
+                var context1 = contextRef.get()
+                appManOb = ApkInformationExtractor(context1!!).appManagerInitValues()
 
                 if (appManOb != null) {
                     numberOfUserApps = Constants.STRING_EMPTY + appManOb!!.userAppSize
@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
                     appListAlternate.addAll(userAppList)
                     appList.addAll(userAppList)
 
-                    adapter = AppsAdapter(context, appListAlternate)
+                    adapter = AppsAdapter(context1, appListAlternate)
                 } else {
 
                     numberOfUserApps = Constants.STRING_EMPTY + "0"
@@ -114,7 +114,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
                     appListAlternate.clear()
                     appList.clear()
 
-                    adapter = AppsAdapter(context, appListAlternate)
+                    adapter = AppsAdapter(context1, appListAlternate)
                 }
 
                 //UI Thread
