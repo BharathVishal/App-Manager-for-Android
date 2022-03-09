@@ -43,13 +43,13 @@ An app manager for Android written in Kotlin. View app related info, launch or u
 &nbsp;
 
 ### SDK Info : 
-Min SDK : 23  | Target SDK : 32 | Gradle : 7.0.4  | Kotlin
+Min SDK : 23  | Target SDK : 32 | Gradle : 7.1.2  | Kotlin
 
 &nbsp;
 
 
 ### Android Studio Version : 
-Android Studio Arctic Fox | 2020.3.1 Patch 4
+Android Studio Bumblebee | 2021.1.1 Patch 2
 
 
 &nbsp;
