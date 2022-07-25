@@ -49,7 +49,7 @@ Min SDK : 23  | Target SDK : 33 | Gradle : 7.2.1  | Kotlin
 
 
 ### Android Studio Version : 
-Android Studio Bumblebee | 2021.2.1 Patch 1
+Android Studio Chipmunk | 2021.2.1 Patch 1
 
 
 &nbsp;
