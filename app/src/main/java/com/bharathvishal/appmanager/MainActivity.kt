@@ -2,6 +2,7 @@ package com.bharathvishal.appmanager
 
 import android.content.Context
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -81,6 +82,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         binding.spinnerAppType.isSelected = false
         binding.spinnerAppType.isEnabled = false
 
+        binding.aboutLink.movementMethod=LinkMovementMethod.getInstance()
     }
 
 

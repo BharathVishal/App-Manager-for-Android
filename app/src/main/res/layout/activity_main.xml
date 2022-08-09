@@ -16,13 +16,14 @@
             android:layout_height="?attr/actionBarSize"
             app:title="@string/app_name" />
 
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_margin="16dp"
+        android:orientation="vertical"
         card_view:cardCornerRadius="12dp"
         card_view:cardElevation="1dp"
         card_view:cardMaxElevation="1dp">
@@ -40,15 +41,31 @@
                 android:weightSum="2">
 
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:id="@+id/about_link"
+                    android:layout_marginBottom="1dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:text="@string/about_main"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    android:visibility="visible" />
+
+
                 <Spinner
                     android:id="@+id/spinner_App_Type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:gravity="center"
                     android:layout_margin="3dp"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
                     android:padding="5dp"
                     android:textSize="12sp" />
 
@@ -106,7 +123,6 @@
                 android:layout_marginBottom="15dp"
                 android:orientation="vertical">
 
-
                 <TextView
                     android:id="@+id/list_empty_Apps_Appmanager"
                     android:layout_width="wrap_content"
@@ -125,6 +141,7 @@
             </LinearLayout>
 
         </LinearLayout>
+
 
     </androidx.cardview.widget.CardView>
 
