@@ -5,6 +5,7 @@ package com.bharathvishal.appmanager.Adapters
  */
 
 
+import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
@@ -108,6 +109,7 @@ class AppsAdapter(private val context1: Context, private val appInfoList: Mutabl
     }
 
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateList(items: List<AppInfo>?) {
         if (items != null) {
             if (items.isNotEmpty()) {

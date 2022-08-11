@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.content.pm.ResolveInfo
 import android.graphics.drawable.Drawable
 import android.net.Uri
+import android.os.Build
 import androidx.annotation.Keep
 import androidx.core.content.ContextCompat
 import com.bharathvishal.appmanager.Classes.AppManager
@@ -35,7 +36,14 @@ class ApkInformationExtractor(private val context1: Context) {
 
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED
 
-        val resolveInfoList = context1.packageManager.queryIntentActivities(intent, 0)
+        val resolveInfoList = if (Build.VERSION.SDK_INT >= 33) {
+            context1.packageManager.queryIntentActivities(
+                intent,
+                PackageManager.ResolveInfoFlags.of(0)
+            )
+        } else {
+            context1.packageManager.queryIntentActivities(intent, 0)
+        }
 
         for (resolveInfo in resolveInfoList) {
 
@@ -100,7 +108,14 @@ class ApkInformationExtractor(private val context1: Context) {
 
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED
 
-        val resolveInfoList = context1.packageManager.queryIntentActivities(intent, 0)
+        val resolveInfoList = if (Build.VERSION.SDK_INT >= 33) {
+            context1.packageManager.queryIntentActivities(
+                intent,
+                PackageManager.ResolveInfoFlags.of(0)
+            )
+        } else {
+            context1.packageManager.queryIntentActivities(intent, 0)
+        }
 
         for (resolveInfo in resolveInfoList) {
 
@@ -121,7 +136,14 @@ class ApkInformationExtractor(private val context1: Context) {
 
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED
 
-        val resolveInfoList = context1.packageManager.queryIntentActivities(intent, 0)
+        val resolveInfoList = if (Build.VERSION.SDK_INT >= 33) {
+            context1.packageManager.queryIntentActivities(
+                intent,
+                PackageManager.ResolveInfoFlags.of(0)
+            )
+        } else {
+            context1.packageManager.queryIntentActivities(intent, 0)
+        }
 
         for (resolveInfo in resolveInfoList) {
 
@@ -136,6 +158,7 @@ class ApkInformationExtractor(private val context1: Context) {
 
 
     //Returns App Name
+    @Suppress("unused")
     fun getAllInstalledApkInfoAppName(): List<String> {
         val apkName = ArrayList<String>()
 
@@ -145,7 +168,14 @@ class ApkInformationExtractor(private val context1: Context) {
 
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED
 
-        val resolveInfoList = context1.packageManager.queryIntentActivities(intent, 0)
+        val resolveInfoList = if (Build.VERSION.SDK_INT >= 33) {
+            context1.packageManager.queryIntentActivities(
+                intent,
+                PackageManager.ResolveInfoFlags.of(0)
+            )
+        } else {
+            context1.packageManager.queryIntentActivities(intent, 0)
+        }
 
         for (resolveInfo in resolveInfoList) {
 
@@ -164,6 +194,7 @@ class ApkInformationExtractor(private val context1: Context) {
     }
 
 
+    @Suppress("unused")
     fun getAppIconByPackageName(ApkTempPackageName: String): Drawable? {
         val drawable: Drawable? = try {
             context1.packageManager.getApplicationIcon(ApkTempPackageName)
@@ -179,7 +210,11 @@ class ApkInformationExtractor(private val context1: Context) {
         var resUri = Uri.EMPTY
         try {
             val pm = context1.packageManager
-            val appInfo = pm.getApplicationInfo(ApkTempPackageName, 0)
+            val appInfo = if (Build.VERSION.SDK_INT >= 33) {
+                pm.getApplicationInfo(ApkTempPackageName, PackageManager.ApplicationInfoFlags.of(0))
+            } else {
+                pm.getApplicationInfo(ApkTempPackageName, 0)
+            }
 
             if (appInfo.icon != 0) {
                 resUri = Uri.parse("android.resource://" + ApkTempPackageName + "/" + appInfo.icon)
@@ -202,7 +237,14 @@ class ApkInformationExtractor(private val context1: Context) {
         val packageManager = context1.packageManager
 
         try {
-            applicationInfo = packageManager.getApplicationInfo(ApkPackageName, 0)
+            if (Build.VERSION.SDK_INT >= 33) {
+                applicationInfo = packageManager.getApplicationInfo(
+                    ApkPackageName,
+                    PackageManager.ApplicationInfoFlags.of(0)
+                )
+            } else {
+                applicationInfo = packageManager.getApplicationInfo(ApkPackageName, 0)
+            }
             name = packageManager.getApplicationLabel(applicationInfo) as String
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
@@ -214,11 +256,29 @@ class ApkInformationExtractor(private val context1: Context) {
 
     private fun getAppVersion(ApkPackageName: String): String {
         var versionName = ""
+        @Suppress("ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE")
         val applicationInfo: ApplicationInfo?
         val packageManager = context1.packageManager
         try {
-            applicationInfo = packageManager.getApplicationInfo(ApkPackageName, 0)
-            versionName = packageManager.getPackageInfo(ApkPackageName, 0).versionName
+            if (Build.VERSION.SDK_INT >= 33) {
+                @Suppress("UNUSED_VALUE")
+                applicationInfo = packageManager.getApplicationInfo(
+                    ApkPackageName,
+                    PackageManager.ApplicationInfoFlags.of(0)
+                )
+            } else {
+                @Suppress("UNUSED_VALUE")
+                applicationInfo = packageManager.getApplicationInfo(ApkPackageName, 0)
+            }
+
+            versionName = if (Build.VERSION.SDK_INT >= 33) {
+                packageManager.getPackageInfo(
+                    ApkPackageName,
+                    PackageManager.PackageInfoFlags.of(0)
+                ).versionName
+            } else {
+                packageManager.getPackageInfo(ApkPackageName, 0).versionName
+            }
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
         }
@@ -230,7 +290,11 @@ class ApkInformationExtractor(private val context1: Context) {
         val manager = context1.packageManager
 
         try {
-            val info = manager.getPackageInfo(ApkPackageName, 0)
+            val info = if (Build.VERSION.SDK_INT >= 33) {
+                manager.getPackageInfo(ApkPackageName, PackageManager.PackageInfoFlags.of(0))
+            } else {
+                manager.getPackageInfo(ApkPackageName, 0)
+            }
             if (info != null) {
 
                 val temp = info.firstInstallTime
@@ -249,7 +313,11 @@ class ApkInformationExtractor(private val context1: Context) {
         val manager = context1.packageManager
 
         try {
-            val info = manager.getPackageInfo(ApkPackageName, 0)
+            val info = if (Build.VERSION.SDK_INT >= 33) {
+                manager.getPackageInfo(ApkPackageName, PackageManager.PackageInfoFlags.of(0))
+            } else {
+                manager.getPackageInfo(ApkPackageName, 0)
+            }
             if (info != null) {
                 val temp = info.lastUpdateTime
                 lastUpdated = "Updated " + getDate(temp)

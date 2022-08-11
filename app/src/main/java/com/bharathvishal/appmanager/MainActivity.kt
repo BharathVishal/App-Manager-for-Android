@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         super.onCreate(savedInstanceState)
 
         try {
-            DynamicColors.applyIfAvailable(this)
+            DynamicColors.applyToActivityIfAvailable(this)
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         //Coroutine
         launch(Dispatchers.Default) {
             try {
-                var context1 = contextRef.get()
+                val context1 = contextRef.get()
                 appManOb = ApkInformationExtractor(context1!!).appManagerInitValues()
 
                 if (appManOb != null) {
