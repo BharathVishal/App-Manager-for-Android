@@ -4,7 +4,7 @@
 <img src="Logo/horizontal.png" width=75%>
 </h1>
 
-An app manager for Android written in Kotlin. View app related info, launch or uninstall apps.
+An app manager for Android written in Kotlin. View app related info, launch or uninstall apps. Fully implemented in Jetpack compose using Material You dynamic theming and also has a separate implementation with xml
 
 &nbsp;
 ### Usage:
@@ -21,6 +21,7 @@ An app manager for Android written in Kotlin. View app related info, launch or u
 - View app installed date
 - View app updated date
 - Launch app 
+- Material You design with dynamic theming.
 
 
 &nbsp;
@@ -32,7 +33,7 @@ An app manager for Android written in Kotlin. View app related info, launch or u
 ### Screenshots : 
 ![Screenshot 1](https://github.com/BharathVishal/App-Manager-Android/blob/master/Screenshots/1.png?s=20)
 ![Screenshot 2](https://github.com/BharathVishal/App-Manager-Android/blob/master/Screenshots/2.png?s=20)
-
+![Screenshot 2](https://github.com/BharathVishal/App-Manager-Android/blob/master/Screenshots/3.png?s=20)
 
 
 &nbsp;
@@ -43,7 +44,7 @@ An app manager for Android written in Kotlin. View app related info, launch or u
 &nbsp;
 
 ### SDK Info : 
-Min SDK : 23  | Target SDK : 33 | Gradle : 7.2.2  | Kotlin
+Min SDK : 23  | Target SDK : 33 | Gradle : 7.2.2  | Kotlin | Jetpack Compose
 
 &nbsp;
 
