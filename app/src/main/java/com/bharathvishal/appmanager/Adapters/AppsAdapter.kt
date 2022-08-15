@@ -116,6 +116,9 @@ class AppsAdapter(private val context1: Context, private val appInfoList: Mutabl
                 appInfoList.clear()
                 appInfoList.addAll(items)
                 notifyDataSetChanged()
+            }else {
+                appInfoList.clear()
+                notifyDataSetChanged()
             }
         }
     }

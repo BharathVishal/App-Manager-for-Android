@@ -1,33 +1,34 @@
-package com.bharathvishal.appmanager
+package com.bharathvishal.appmanager.Activities
 
 import android.content.Context
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.view.View
-import android.widget.*
 import com.bharathvishal.appmanager.Adapters.ApkInformationExtractor
 import com.bharathvishal.appmanager.Adapters.AppsAdapter
 import com.bharathvishal.appmanager.Classes.AppInfo
 import com.bharathvishal.appmanager.Classes.AppManager
 import com.bharathvishal.appmanager.Constants.Constants
+import com.bharathvishal.appmanager.R
 import com.bharathvishal.appmanager.R.array.spinner_app_type
 import com.bharathvishal.appmanager.databinding.ActivityMainBinding
 import com.google.android.material.color.DynamicColors
 import kotlinx.coroutines.*
 import java.lang.ref.WeakReference
-import java.util.*
 
 
 class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     private var adapter: AppsAdapter? = null
 
-    internal lateinit var appList: MutableList<AppInfo>
+    private lateinit var appList: MutableList<AppInfo>
     private lateinit var appListAlternate: MutableList<AppInfo>
-    internal lateinit var userAppList: MutableList<AppInfo>
-    internal lateinit var systemAppList: MutableList<AppInfo>
+    private lateinit var userAppList: MutableList<AppInfo>
+    private lateinit var systemAppList: MutableList<AppInfo>
 
     private var appManOb: AppManager? = null
 
@@ -35,10 +36,10 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
     private var apkInformationExtractor: ApkInformationExtractor? = null
 
-    internal var arrAppType: Array<String>? = null
+    private var arrAppType: Array<String>? = null
     private var recyclerViewLayoutManager: RecyclerView.LayoutManager? = null
-    internal var numberOfUserApps: String? = Constants.STRING_EMPTY
-    internal var numberOfSystemApps: String? = Constants.STRING_EMPTY
+    private var numberOfUserApps: String? = Constants.STRING_EMPTY
+    private var numberOfSystemApps: String? = Constants.STRING_EMPTY
 
     private lateinit var binding: ActivityMainBinding
 
@@ -82,7 +83,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
         binding.spinnerAppType.isSelected = false
         binding.spinnerAppType.isEnabled = false
 
-        binding.aboutLink.movementMethod=LinkMovementMethod.getInstance()
+        binding.aboutLink.movementMethod = LinkMovementMethod.getInstance()
     }
 
 

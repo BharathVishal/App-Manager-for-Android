@@ -31,4 +31,25 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:statusBarColor">?colorSurface</item>
     </style>
+
+
+    <style name="ThemeAppStarting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/colorSplashDark</item>
+
+        // Set the splash screen background, animated icon, and animation duration.
+        // Use windowSplashScreenAnimatedIcon to add either a drawable or an
+        // animated drawable. One of these is required.
+        windowSplashScreenIconBackgroundColor
+        windowSplashScreenIconBackgroundColor
+        <item name="windowSplashScreenAnimatedIcon">@drawable/icon_foreground_alt</item>
+        # Required for
+        <item name="windowSplashScreenAnimationDuration">200</item>
+        # Required for
+        # animated icons
+
+        // Set the theme of the Activity that directly follows your splash screen.
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
+        # Required.
+    </style>
+
 </resources>

@@ -9,6 +9,7 @@ import android.content.pm.ResolveInfo
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Build
+import android.util.Log
 import androidx.annotation.Keep
 import androidx.core.content.ContextCompat
 import com.bharathvishal.appmanager.Classes.AppManager
@@ -29,69 +30,107 @@ class ApkInformationExtractor(private val context1: Context) {
 
     fun appManagerInitValues(): AppManager {
         val ob = AppManager()
-
         val intent = Intent(Intent.ACTION_MAIN, null)
-
         intent.addCategory(Intent.CATEGORY_LAUNCHER)
-
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED
+        var resolveInfoList: List<ResolveInfo>? = null
 
-        val resolveInfoList = if (Build.VERSION.SDK_INT >= 33) {
-            context1.packageManager.queryIntentActivities(
-                intent,
-                PackageManager.ResolveInfoFlags.of(0)
-            )
-        } else {
-            context1.packageManager.queryIntentActivities(intent, 0)
+        try {
+            resolveInfoList = context1!!.packageManager.queryIntentActivities(intent, 0)
+        } catch (e: Exception) {
+            Log.d("Exception handled", "Exception Handled")
+            resolveInfoList = null
         }
 
-        for (resolveInfo in resolveInfoList) {
+        if (resolveInfoList != null) {
+            for (resolveInfo in resolveInfoList) {
 
-            val activityInfo = resolveInfo.activityInfo
+                if (resolveInfo != null) {
+                    val activityInfo = resolveInfo.activityInfo
+                    if (!isSystemPackage(resolveInfo)) {
+                        val appPackageNameCur = activityInfo.applicationInfo.packageName.toString()
 
-            if (!isSystemPackage(resolveInfo)) {
+                        try {
+                            //add to the object only if there is no other object with the same package name
+                            var isCurAppAlreadyPresent = false
+                            try {
+                                for (i in 0 until ob.userAppSize) {
+                                    if (ob.userApps[i].appPackage == appPackageNameCur) {
+                                        isCurAppAlreadyPresent = true
+                                        break
+                                    }
+                                }
+                            } catch (e123: Exception) {
+                                Log.d("Exception handled", "Exception Handled")
+                            }
 
-                ob.userAppSize = ob.userAppSize + 1
-                val appPackageName = activityInfo.applicationInfo.packageName.toString()
-                ob.userApps.add(
-                    AppInfo(
-                        getAppName(appPackageName),
-                        appPackageName,
-                        getFirstInstalledDate(appPackageName),
-                        getLastUpdatedDate(appPackageName),
-                        getAppVersion(appPackageName),
-                        getAppIconURIByPackageName(appPackageName)
-                    )
-                )
+                            if (!isCurAppAlreadyPresent) {
+                                ob.userApps.add(
+                                    AppInfo(
+                                        getAppName(appPackageNameCur),
+                                        appPackageNameCur,
+                                        getFirstInstalledDate(appPackageNameCur),
+                                        getLastUpdatedDate(appPackageNameCur),
+                                        getAppVersion(appPackageNameCur),
+                                        getAppIconURIByPackageName(appPackageNameCur)
+                                    )
+                                )
+                            }
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
 
-                ob.userApps.sortWith { o1, o2 ->
-                    o1.appName!!.compareTo(
-                        o2.appName!!,
-                        ignoreCase = true
-                    )
-                }
+                        ob.userApps.sortWith(Comparator { o1, o2 ->
+                            o1.appName!!.compareTo(
+                                o2.appName!!,
+                                ignoreCase = true
+                            )
+                        })
+                        ob.userAppSize = ob.userApps.size
+                    } else if (isSystemPackage(resolveInfo)) {
+                        val appPackageNameTemp1 =
+                            activityInfo.applicationInfo.packageName.toString()
 
-            } else if (isSystemPackage(resolveInfo)) {
-                ob.systemAppSize = ob.systemAppSize + 1
-                val appPackageName = activityInfo.applicationInfo.packageName.toString()
+                        try {
+                            //add to the object only if there is no other object with the same package name
+                            var isCurAppAlreadyPresent1 = false
+                            try {
+                                for (i in 0 until ob.systemAppSize) {
+                                    if (ob.systemApps[i].appPackage == appPackageNameTemp1) {
+                                        isCurAppAlreadyPresent1 = true
+                                        break
+                                    }
+                                }
+                            } catch (e123: Exception) {
+                                Log.d("Exception handled", "Exception Handled")
+                            }
 
-                val add = ob.systemApps.add(
-                    AppInfo(
-                        getAppName(appPackageName),
-                        appPackageName,
-                        getFirstInstalledDate(appPackageName),
-                        getLastUpdatedDate(appPackageName),
-                        getAppVersion(appPackageName),
-                        getAppIconURIByPackageName(appPackageName)
-                    )
-                )
+                            if (!isCurAppAlreadyPresent1) {
+                                ob.systemApps.add(
+                                    AppInfo(
+                                        getAppName(appPackageNameTemp1),
+                                        appPackageNameTemp1,
+                                        getFirstInstalledDate(appPackageNameTemp1),
+                                        getLastUpdatedDate(appPackageNameTemp1),
+                                        getAppVersion(appPackageNameTemp1),
+                                        getAppIconURIByPackageName(appPackageNameTemp1)
+                                    )
+                                )
+                            }
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
 
-                ob.systemApps.sortWith { o1, o2 ->
-                    o1.appName!!.compareTo(
-                        o2.appName!!,
-                        ignoreCase = true
-                    )
-                }
+                        ob.systemApps.sortWith(Comparator { o1, o2 ->
+                            o1.appName!!.compareTo(
+                                o2.appName!!,
+                                ignoreCase = true
+                            )
+                        })
+
+                        ob.systemAppSize = ob.systemApps.size
+                    }
+                }//end of if resolve info
             }
         }
         return ob
@@ -196,11 +235,12 @@ class ApkInformationExtractor(private val context1: Context) {
 
     @Suppress("unused")
     fun getAppIconByPackageName(ApkTempPackageName: String): Drawable? {
-        val drawable: Drawable? = try {
+        var drawable: Drawable?
+        drawable = try {
             context1.packageManager.getApplicationIcon(ApkTempPackageName)
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
-            ContextCompat.getDrawable(context1, R.mipmap.ic_launcher)
+            ContextCompat.getDrawable(context1, R.drawable.ic_android)
         }
         return drawable
     }
@@ -216,8 +256,11 @@ class ApkInformationExtractor(private val context1: Context) {
                 pm.getApplicationInfo(ApkTempPackageName, 0)
             }
 
-            if (appInfo.icon != 0) {
-                resUri = Uri.parse("android.resource://" + ApkTempPackageName + "/" + appInfo.icon)
+            if (appInfo != null) {
+                if (appInfo.icon != 0) {
+                    resUri =
+                        Uri.parse("android.resource://" + ApkTempPackageName + "/" + appInfo.icon)
+                }
             }
 
         } catch (e: PackageManager.NameNotFoundException) {
@@ -231,9 +274,7 @@ class ApkInformationExtractor(private val context1: Context) {
 
     private fun getAppName(ApkPackageName: String): String {
         var name = Constants.STRING_EMPTY
-
         val applicationInfo: ApplicationInfo?
-
         val packageManager = context1.packageManager
 
         try {
@@ -245,7 +286,10 @@ class ApkInformationExtractor(private val context1: Context) {
             } else {
                 applicationInfo = packageManager.getApplicationInfo(ApkPackageName, 0)
             }
-            name = packageManager.getApplicationLabel(applicationInfo) as String
+
+            if (applicationInfo != null) {
+                name = packageManager.getApplicationLabel(applicationInfo) as String
+            }
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
         }
@@ -256,6 +300,7 @@ class ApkInformationExtractor(private val context1: Context) {
 
     private fun getAppVersion(ApkPackageName: String): String {
         var versionName = ""
+
         @Suppress("ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE")
         val applicationInfo: ApplicationInfo?
         val packageManager = context1.packageManager
@@ -271,13 +316,15 @@ class ApkInformationExtractor(private val context1: Context) {
                 applicationInfo = packageManager.getApplicationInfo(ApkPackageName, 0)
             }
 
-            versionName = if (Build.VERSION.SDK_INT >= 33) {
-                packageManager.getPackageInfo(
-                    ApkPackageName,
-                    PackageManager.PackageInfoFlags.of(0)
-                ).versionName
-            } else {
-                packageManager.getPackageInfo(ApkPackageName, 0).versionName
+            if (applicationInfo != null) {
+                versionName = if (Build.VERSION.SDK_INT >= 33) {
+                    packageManager.getPackageInfo(
+                        ApkPackageName,
+                        PackageManager.PackageInfoFlags.of(0)
+                    ).versionName
+                } else {
+                    packageManager.getPackageInfo(ApkPackageName, 0).versionName
+                }
             }
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
@@ -295,8 +342,8 @@ class ApkInformationExtractor(private val context1: Context) {
             } else {
                 manager.getPackageInfo(ApkPackageName, 0)
             }
-            if (info != null) {
 
+            if (info != null) {
                 val temp = info.firstInstallTime
                 firstInstalled = "Installed " + getDate(temp)
             }
