@@ -4,7 +4,7 @@
 <img src="Logo/horizontal.png" width=75%>
 </h1>
 
-An app manager for Android written in Kotlin. View app related info, launch or uninstall apps. Fully implemented in Jetpack compose using Material You dynamic theming and also has a separate implementation with xml
+An app manager for Android written in Kotlin. View app related info, launch or uninstall apps. Fully implemented in Jetpack compose using Material You dynamic theming and also has a separate implementation with xml.
 
 &nbsp;
 ### Usage:
