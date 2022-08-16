@@ -23,6 +23,7 @@ import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.ArrowDropUp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Size
@@ -49,15 +50,21 @@ import com.bharathvishal.appmanager.R
 import com.bharathvishal.appmanager.theme.Material3AppTheme
 import com.google.android.material.color.DynamicColors
 import kotlinx.coroutines.*
+import okhttp3.internal.notify
 import java.lang.ref.WeakReference
 
 class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
-    private lateinit var appList: MutableList<AppInfo>
+    //private lateinit var appList: MutableList<AppInfo>
+
+    private var appList = SnapshotStateList<AppInfo>()
+
     private lateinit var appListAlternate: MutableList<AppInfo>
     private lateinit var userAppList: MutableList<AppInfo>
     private lateinit var systemAppList: MutableList<AppInfo>
 
     private var appManOb: AppManager? = null
+
+    private var appLaunchedNow = true
 
     private lateinit var activityContext: Context
 
@@ -85,7 +92,7 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
             e.printStackTrace()
         }
 
-        appList = ArrayList()
+        appList = SnapshotStateList()
         arrAppType = arrayOf("User Apps", "System Apps")
 
         appManOb = AppManager()
@@ -93,6 +100,8 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
         userAppList = ArrayList()
         systemAppList = ArrayList()
         appListAlternate = ArrayList()
+
+        appLaunchedNow = true
 
         activityContext = this
 
@@ -109,7 +118,7 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
 
         apkInformationExtractor = ApkInformationExtractor(this)
 
-        getApps(activityContext)
+        getApps(activityContext, false, selectedOptionTextVal.value)
     }
 
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -276,14 +285,10 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
                         if (label == "User Apps") {
                             appList.clear()
                             appList.addAll(userAppList)
-                            //mAppsListVal.clear()
-                            //mAppsListVal.addAll(appList)
                             numberOfAppsVal.value = "$numberOfUserApps User apps"
                         } else {
                             appList.clear()
                             appList.addAll(systemAppList)
-                            //mAppsListVal.clear()
-                            //mAppsListVal.addAll(appList)
                             numberOfAppsVal.value = "$numberOfSystemApps System apps"
                         }
                     },
@@ -312,7 +317,6 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
         }
     }
 
-
     @Suppress("SENSELESS_COMPARISON")
     @Composable
     fun LazyColumnView() {
@@ -324,7 +328,7 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
             verticalArrangement = Arrangement.spacedBy(1.dp)
         ) {
             if (appList != null) {
-                items(appList) { item ->
+                items(items = appList) { item ->
                     ComposableCardViewApp(
                         item.appName!!,
                         item.appPackage!!,
@@ -478,7 +482,7 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
         }
     }
 
-    private fun getApps(context: Context) {
+    private fun getApps(context: Context, isCalledOnResume: Boolean, typeOfAppsToShow: String) {
         val contextRef: WeakReference<Context> = WeakReference(context)
 
         //Coroutine
@@ -491,11 +495,13 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
                     numberOfUserApps = Constants.STRING_EMPTY + appManOb!!.userAppSize
                     numberOfSystemApps = Constants.STRING_EMPTY + appManOb!!.systemAppSize
 
+                    appListAlternate.clear()
+                    userAppList.clear()
+                    systemAppList.clear()
+
                     userAppList.addAll(appManOb!!.userApps)
                     systemAppList.addAll(appManOb!!.systemApps)
-
                     appListAlternate.addAll(userAppList)
-                    appList.addAll(userAppList)
                 } else {
 
                     numberOfUserApps = Constants.STRING_EMPTY + "0"
@@ -504,27 +510,56 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
                     userAppList.clear()
                     systemAppList.clear()
                     appListAlternate.clear()
-                    appList.clear()
                 }
 
                 //UI Thread
                 withContext(Dispatchers.Main) {
-                    numberOfAppsVal.value = "$numberOfUserApps User apps"
+                    //Runs on OnCreate
+                    if (!isCalledOnResume) {
+                        numberOfAppsVal.value = "$numberOfUserApps User apps"
 
-                    if (selectedOptionTextVal.value == "User Apps") {
+                        //Always show user apps list ny default oncreate
                         appList.clear()
                         appList.addAll(appListAlternate)
-                        //mAppsListVal.clear()
-                        //mAppsListVal.addAll(appList)
-                    } else {
-                        appList.clear()
-                        appList.addAll(appListAlternate)
-                        //mAppsListVal.clear()
-                        //mAppsListVal.addAll(appList)
+                    }
+
+
+                    //Runs for onResume
+                    if (isCalledOnResume) {
+                        if (typeOfAppsToShow == "User Apps") {
+                            numberOfAppsVal.value = "$numberOfUserApps User apps"
+                            selectedOptionTextVal.value = "User Apps"
+                            appList.clear()
+                            appList.addAll(appListAlternate)
+                        } else {
+                            numberOfAppsVal.value = "$numberOfSystemApps System apps"
+                            selectedOptionTextVal.value = "System Apps"
+                            appList.clear()
+                            appList = SnapshotStateList<AppInfo>()
+                            appList.addAll(systemAppList)
+                        }
                     }
                 }
             } catch (e: java.lang.Exception) {
                 e.printStackTrace()
+            }
+        }
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+
+        if (appLaunchedNow) {
+            appLaunchedNow = false
+            Log.d("onres1", "Executed first time")
+        } else {
+            //Refresh and reload the apps
+            if (activityContext != null) {
+                getApps(activityContext, true, selectedOptionTextVal.value)
+
+                Log.d("onres1", "Executed on Resume")
+                Log.d("onres1", "selected option val$selectedOptionTextVal")
             }
         }
     }
