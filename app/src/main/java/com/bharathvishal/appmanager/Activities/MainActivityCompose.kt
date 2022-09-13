@@ -16,8 +16,10 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.ArrowDropUp
@@ -328,15 +330,16 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
             verticalArrangement = Arrangement.spacedBy(1.dp)
         ) {
             if (appList != null) {
-                items(items = appList) { item ->
-                    ComposableCardViewApp(
-                        item.appName!!,
-                        item.appPackage!!,
-                        item.installedOn!!,
-                        item.lastUpdated!!,
-                        item.appVersion!!,
-                        item.appDrawableURI!!
-                    )
+                items(items = appList) {
+                     item -> if (item != null)
+                        ComposableCardViewApp(
+                            item.appName!!,
+                            item.appPackage!!,
+                            item.installedOn!!,
+                            item.lastUpdated!!,
+                            item.appVersion!!,
+                            item.appDrawableURI!!
+                        )
                 }
             }
         }
