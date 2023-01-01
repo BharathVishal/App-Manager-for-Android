@@ -16,10 +16,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.ArrowDropUp
@@ -52,7 +50,6 @@ import com.bharathvishal.appmanager.R
 import com.bharathvishal.appmanager.theme.Material3AppTheme
 import com.google.android.material.color.DynamicColors
 import kotlinx.coroutines.*
-import okhttp3.internal.notify
 import java.lang.ref.WeakReference
 
 class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
@@ -198,7 +195,7 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
 
     @Composable
     fun TextLicenseHeader() {
-        val text1 = "© 2022. "
+        val text1 = "© 2023. "
         val text2 = "Open Source Software"
         val text3 = " licensed with Apache-2.0 license."
         val annotatedString = buildAnnotatedString {
