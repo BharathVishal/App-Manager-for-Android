@@ -21,7 +21,7 @@ An app manager for Android written in Kotlin. View app related info, launch or u
 - View app installed date
 - View app updated date
 - Launch app 
-- Material You design with dynamic theming.
+- Material You 3.0 design with dynamic theming.
 
 
 &nbsp;
