@@ -57,7 +57,7 @@ Android Studio Electric Eel | 2022.1.1
 
 
 #### License : 
-[Apache License 2.0] (https://github.com/BharathVishal/App-Manager-Android/blob/master/LICENSE)
+[Apache License 2.0](https://github.com/BharathVishal/App-Manager-Android/blob/master/LICENSE)
 &nbsp;
 
 
