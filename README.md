@@ -60,6 +60,7 @@ Android Studio Electric Eel | 2022.1.1
 [Apache License 2.0](https://github.com/BharathVishal/App-Manager-Android/blob/master/LICENSE)
 &nbsp;
 
+&nbsp;
 
 © 2018-2023. Developed by Bharath Vishal G (https://github.com/BharathVishal).
 Logo designed by Zularizal(https://github.com/zularizal).
