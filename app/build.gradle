@@ -8,10 +8,9 @@ android {
         vectorDrawables.useSupportLibrary = true
         minSdkVersion 23
         targetSdkVersion 33
-        versionCode 78
-        versionName "3.2"
+        versionCode 81
+        versionName "3.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
     }
     buildFeatures {
         viewBinding true
@@ -31,15 +30,15 @@ android {
     }
     buildToolsVersion '33.0.0'
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
     composeOptions {
-        kotlinCompilerExtensionVersion "1.4.2"
+        kotlinCompilerExtensionVersion "1.4.6"
     }
     packagingOptions {
         jniLibs {
@@ -57,24 +56,24 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation 'com.google.android.material:material:1.9.0-alpha01'
+    implementation 'com.google.android.material:material:1.9.0-rc01'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
-    implementation 'com.github.bumptech.glide:glide:4.14.2'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.15.1'
     implementation 'androidx.cardview:cardview:1.0.0'
     androidTestImplementation 'androidx.test:runner:1.5.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    implementation 'androidx.compose.material3:material3:1.1.0-alpha06'
-    implementation "androidx.compose.material3:material3-window-size-class:1.1.0-alpha06"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
-    implementation 'androidx.activity:activity-compose:1.6.1'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.3.3"
-    implementation 'androidx.core:core-splashscreen:1.0.0'
-    debugImplementation 'androidx.compose.ui:ui-tooling:1.3.3'
-    implementation 'androidx.compose.material:material-icons-extended:1.4.0-beta01'
-    implementation "androidx.compose.ui:ui-tooling-preview:1.3.3"
+    implementation 'androidx.compose.material3:material3:1.1.0-rc01'
+    implementation "androidx.compose.material3:material3-window-size-class:1.1.0-rc01"
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
+    implementation 'androidx.activity:activity-compose:1.7.1'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.4.2"
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+    debugImplementation 'androidx.compose.ui:ui-tooling:1.4.2'
+    implementation 'androidx.compose.material:material-icons-extended:1.5.0-alpha03'
+    implementation "androidx.compose.ui:ui-tooling-preview:1.4.2"
     implementation "com.google.accompanist:accompanist-systemuicontroller:0.28.0"
     implementation("io.coil-kt:coil-compose:2.2.2")
 }
