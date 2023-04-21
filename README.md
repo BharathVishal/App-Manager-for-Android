@@ -44,13 +44,13 @@ An app manager for Android written in Kotlin. View app related info, launch or u
 &nbsp;
 
 ### SDK Info : 
-Min SDK : 23  | Target SDK : 33 | Gradle : 7.4.1  | Kotlin | Jetpack Compose
+Min SDK : 23  | Target SDK : 33 | Gradle : 8.0.0  | Kotlin | Jetpack Compose
 
 &nbsp;
 
 
 ### Android Studio Version : 
-Android Studio Electric Eel | 2022.1.1 
+Android Studio Flamingo | 2022.2.1 
 
 
 &nbsp;
