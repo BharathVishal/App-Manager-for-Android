@@ -50,7 +50,7 @@ Min SDK : 23  | Target SDK : 34 | Gradle : 8.0.2  | Kotlin | Jetpack Compose
 
 
 ### Android Studio Version : 
-Android Studio Flamingo | 2022.2.1 
+Android Studio Flamingo | 2022.2.1 Patch 2
 
 
 &nbsp;
