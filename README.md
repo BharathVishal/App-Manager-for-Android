@@ -60,9 +60,11 @@ Android Studio Giraffe | 2022.3.1 Patch 1
 [Apache License 2.0](https://github.com/BharathVishal/App-Manager-for-Android/blob/master/LICENSE)
 &nbsp;
 
+
 &nbsp;
 Android is a trademark of Google LLC.
 &nbsp;
+
 
 
 © 2018-2023. Developed by Bharath Vishal G (https://github.com/BharathVishal).
