@@ -1,4 +1,4 @@
-# App Manager Android
+# App Manager for Android
 
 <h1 align=center>
 <img src="Logo/horizontal.png" width=75%>
@@ -26,14 +26,14 @@ An app manager for Android written in Kotlin. View app related info, launch or u
 
 &nbsp;
 ### Preview : 
-![Preview](https://github.com/BharathVishal/App-Manager-Android/blob/master/Preview/PreviewGif.gif)
+![Preview](https://github.com/BharathVishal/App-Manager-for-Android/blob/master/Preview/PreviewGif.gif)
 
 
 &nbsp;
 ### Screenshots : 
-![Screenshot 1](https://github.com/BharathVishal/App-Manager-Android/blob/master/Screenshots/1.png?s=20)
-![Screenshot 2](https://github.com/BharathVishal/App-Manager-Android/blob/master/Screenshots/2.png?s=20)
-![Screenshot 2](https://github.com/BharathVishal/App-Manager-Android/blob/master/Screenshots/3.png?s=20)
+![Screenshot 1](https://github.com/BharathVishal/App-Manager-for-Android/blob/master/Screenshots/1.png?s=20)
+![Screenshot 2](https://github.com/BharathVishal/App-Manager-for-Android/blob/master/Screenshots/2.png?s=20)
+![Screenshot 2](https://github.com/BharathVishal/App-Manager-for-Android/blob/master/Screenshots/3.png?s=20)
 
 
 &nbsp;
@@ -57,7 +57,7 @@ Android Studio Giraffe | 2022.3.1 Patch 1
 
 
 #### License : 
-[Apache License 2.0](https://github.com/BharathVishal/App-Manager-Android/blob/master/LICENSE)
+[Apache License 2.0](https://github.com/BharathVishal/App-Manager-for-Android/blob/master/LICENSE)
 &nbsp;
 
 &nbsp;
