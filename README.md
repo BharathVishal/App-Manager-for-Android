@@ -44,13 +44,13 @@ An app manager for Android written in Kotlin. View app related info, launch or u
 &nbsp;
 
 ### SDK Info : 
-Min SDK : 23  | Target SDK : 34 | Gradle : 8.1.3  | Kotlin | Jetpack Compose
+Min SDK : 23  | Target SDK : 34 | Gradle : 8.2.0  | Kotlin | Jetpack Compose
 
 &nbsp;
 
 
 ### Android Studio Version : 
-Android Studio Giraffe | 2022.3.1 Patch 3
+Android Studio Hedgehog | 2023.1.1
 
 
 &nbsp;
@@ -67,7 +67,7 @@ Android is a trademark of Google LLC.
 
 
 
-© 2018-2023. Developed by Bharath Vishal G (https://github.com/BharathVishal).
+© 2018-2024. Developed by Bharath Vishal G (https://github.com/BharathVishal).
 Logo designed by Zularizal(https://github.com/zularizal).
 
 
