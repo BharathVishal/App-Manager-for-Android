@@ -1,6 +1,6 @@
 /**
  *
- * Copyright 2018-2023 Bharath Vishal G.
+ * Copyright 2018-2024 Bharath Vishal G.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -213,7 +213,7 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
 
     @Composable
     fun TextLicenseHeader() {
-        val text1 = "© 2023. "
+        val text1 = "© 2024. "
         val text2 = "Open Source Software"
         val text3 = " licensed with Apache-2.0 license."
         val annotatedString = buildAnnotatedString {

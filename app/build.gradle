@@ -8,8 +8,8 @@ android {
         vectorDrawables.useSupportLibrary = true
         minSdkVersion 23
         targetSdkVersion 34
-        versionCode 91
-        versionName "3.7"
+        versionCode 94
+        versionName "3.8"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildFeatures {
@@ -37,7 +37,7 @@ android {
         jvmTarget = "17"
     }
     composeOptions {
-        kotlinCompilerExtensionVersion "1.5.4"
+        kotlinCompilerExtensionVersion "1.5.7"
     }
     packagingOptions {
         jniLibs {
@@ -55,7 +55,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.2"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation 'com.google.android.material:material:1.11.0-beta01'
+    implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     implementation 'com.github.bumptech.glide:glide:4.16.0'
@@ -64,14 +64,14 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.5.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    implementation 'androidx.compose.material3:material3:1.2.0-alpha10'
-    implementation "androidx.compose.material3:material3-window-size-class:1.2.0-alpha10"
+    implementation 'androidx.compose.material3:material3:1.2.0-beta01'
+    implementation "androidx.compose.material3:material3-window-size-class:1.2.0-beta01"
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
-    implementation 'androidx.activity:activity-compose:1.8.0'
+    implementation 'androidx.activity:activity-compose:1.8.2'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.5.4"
     implementation 'androidx.core:core-splashscreen:1.0.1'
     debugImplementation 'androidx.compose.ui:ui-tooling:1.5.4'
-    implementation 'androidx.compose.material:material-icons-extended:1.6.0-alpha08'
+    implementation 'androidx.compose.material:material-icons-extended:1.6.0-beta03'
     implementation "androidx.compose.ui:ui-tooling-preview:1.5.4"
     implementation "com.google.accompanist:accompanist-systemuicontroller:0.28.0"
     implementation("io.coil-kt:coil-compose:2.2.2")
