@@ -1,0 +1,52 @@
+[versions]
+agp = "8.5.0"
+appCompatVer="1.7.0"
+kotlinxCoroutinesVer="1.7.3"
+coilVer="2.6.0"
+kotlinVer = "2.0.0"
+materialVer = "1.12.0"
+constraintlayoutVer="2.1.4"
+coreKtxVer = "1.13.1"
+glideVer="4.16.0"
+cardViewVer="1.0.0"
+compose3MaterialVer="1.2.1"
+lifecycleRuntimeKtxVer="2.8.2"
+activityComposeVer="1.9.0"
+composeUItestVer="1.6.8"
+uitoolingVer="1.6.8"
+uitoolingpreviewVer="1.6.8"
+splashScreenVer="1.0.1"
+junitVersion = "4.13.2"
+materialiconsVer="1.6.8"
+espressoCoreVer = "3.6.1"
+accompanistVer = "0.28.0"
+
+
+[libraries]
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appCompatVer" }
+jetbrains-kotlinx-couroutine = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesVer" }
+coil-kt = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilVer" }
+jetbrains-kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlinVer" }
+google-android-material = { group = "com.google.android.material", name = "material", version.ref = "materialVer" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayoutVer" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtxVer" }
+junit = { group = "junit", name = "junit", version.ref = "junitVersion" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glideVer" }
+glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glideVer" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCoreVer" }
+androidx-cardview = { group = "androidx.cardview", name = "cardview", version.ref = "cardViewVer" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "compose3MaterialVer" }
+androidx-compose-material3-windowsize= { group = "androidx.compose.material3", name = "material3-window-size-class", version.ref = "compose3MaterialVer" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtxVer" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityComposeVer" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4",version.ref="composeUItestVer" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name="ui-tooling",version.ref = "uitoolingVer" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name="ui-tooling-preview",version.ref = "uitoolingpreviewVer" }
+androidx-core-core-splashscreen= { group = "androidx.core", name = "core-splashscreen",version.ref="splashScreenVer" }
+androidx-compose-material-material-icons = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "materialiconsVer" }
+google-accompanist-accompanist = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "accompanistVer" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinVer" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlinVer" }
