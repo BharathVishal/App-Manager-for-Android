@@ -339,9 +339,9 @@ class ApkInformationExtractor(private val context1: Context) {
                     packageManager.getPackageInfo(
                         ApkPackageName,
                         PackageManager.PackageInfoFlags.of(0)
-                    ).versionName
+                    ).versionName!!
                 } else {
-                    packageManager.getPackageInfo(ApkPackageName, 0).versionName
+                    packageManager.getPackageInfo(ApkPackageName, 0).versionName!!
                 }
             }
         } catch (e: PackageManager.NameNotFoundException) {

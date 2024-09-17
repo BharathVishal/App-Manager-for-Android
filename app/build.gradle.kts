@@ -6,16 +6,16 @@ plugins {
 
 android {
     namespace = "com.bharathvishal.appmanager"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         applicationId = "com.bharathvishal.appmanager"
         vectorDrawables {
             useSupportLibrary = true
         }
         minSdk = 23
-        targetSdk = 34
-        versionCode = 98
-        versionName = "4.0"
+        targetSdk = 35
+        versionCode = 99
+        versionName = "4.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildFeatures {
@@ -49,7 +49,7 @@ android {
         jvmTarget = "17"
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
+        kotlinCompilerExtensionVersion = "1.5.15"
     }
 
     packaging {
