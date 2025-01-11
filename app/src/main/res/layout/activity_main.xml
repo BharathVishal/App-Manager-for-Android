@@ -23,6 +23,7 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
+        android:id="@+id/appbarlayoutmain"
         android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.MaterialToolbar
@@ -31,15 +32,14 @@
             android:layout_height="?attr/actionBarSize"
             app:title="@string/app_name" />
 
-
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        android:orientation="vertical"
+       android:orientation="vertical"
         card_view:cardCornerRadius="12dp"
+        android:id="@+id/cardviewMain"
         card_view:cardElevation="1dp"
         card_view:cardMaxElevation="1dp">
 

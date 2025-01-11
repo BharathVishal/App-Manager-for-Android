@@ -23,10 +23,12 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.BorderStroke
@@ -100,6 +102,14 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
     private var snackBarMessageVal = mutableStateOf("-")
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+                enableEdgeToEdge()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
         super.onCreate(savedInstanceState)
 
         //Applies Material dynamic theming
@@ -179,7 +189,7 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
     @Suppress("UNNECESSARY_SAFE_CALL")
     @Composable
     fun CardViewMain() {
-        Column {
+        Column() {
             Spacer(modifier = Modifier.padding(top = 6.dp))
             Card(
                 modifier = Modifier
@@ -345,8 +355,8 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
             verticalArrangement = Arrangement.spacedBy(1.dp)
         ) {
             if (appList != null) {
-                items(items = appList) {
-                     item -> if (item != null)
+                items(items = appList) { item ->
+                    if (item != null)
                         ComposableCardViewApp(
                             item.appName!!,
                             item.appPackage!!,

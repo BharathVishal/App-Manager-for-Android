@@ -45,7 +45,7 @@ class SplashActivity : AppCompatActivity() {
         //2 - Main activity with Jetpack Compose
         val activityTypeToLaunch = 2
 
-        if (activityTypeToLaunch == 2) {
+        if (activityTypeToLaunch == 1) {
             val intent = Intent(actvityContext, MainActivity::class.java)
             startActivity(intent)
             finish()
