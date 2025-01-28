@@ -70,6 +70,7 @@ import com.bharathvishal.appmanager.R
 import com.bharathvishal.appmanager.theme.Material3AppTheme
 import com.google.android.material.color.DynamicColors
 import kotlinx.coroutines.*
+import java.lang.Thread.sleep
 import java.lang.ref.WeakReference
 
 class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
@@ -513,11 +514,14 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
     private fun getApps(context: Context, isCalledOnResume: Boolean, typeOfAppsToShow: String) {
         val contextRef: WeakReference<Context> = WeakReference(context)
 
+        Log.d("coroutine1","couroutine started"+this.taskId)
         //Coroutine
         launch(Dispatchers.Default) {
             try {
                 val context1 = contextRef.get()
                 appManOb = ApkInformationExtractor(context1!!).appManagerInitValues()
+
+                delay(5000)
 
                 if (appManOb != null) {
                     numberOfUserApps = Constants.STRING_EMPTY + appManOb!!.userAppSize
@@ -542,6 +546,8 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
 
                 //UI Thread
                 withContext(Dispatchers.Main) {
+                    Log.d("coroutine1","couroutine finished")
+
                     //Runs on OnCreate
                     if (!isCalledOnResume) {
                         numberOfAppsVal.value = "$numberOfUserApps User apps"
