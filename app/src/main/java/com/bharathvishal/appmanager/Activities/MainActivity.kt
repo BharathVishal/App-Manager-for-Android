@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
 
                 val tempL: View = findViewById<View>(R.id.cardviewMain)
-                ViewCompat.setOnApplyWindowInsetsListener(tempL) { view, windowInsets ->
+                ViewCompat.setOnApplyWindowInsetsListener(tempL) { _, windowInsets ->
                     val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemGestures())
                     // Apply the insets as padding to the view. Here, set all the dimensions
                     // as appropriate to your layout. You can also update the view's margin if

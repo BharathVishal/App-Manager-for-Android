@@ -6,16 +6,16 @@ plugins {
 
 android {
     namespace = "com.bharathvishal.appmanager"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         applicationId = "com.bharathvishal.appmanager"
         vectorDrawables {
             useSupportLibrary = true
         }
         minSdk = 23
-        targetSdk = 35
-        versionCode = 101
-        versionName = "4.3"
+        targetSdk = 36
+        versionCode = 104
+        versionName = "4.4"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildFeatures {
