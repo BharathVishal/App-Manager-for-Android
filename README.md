@@ -50,7 +50,7 @@ Min SDK : 23  | Target SDK : 36 | Gradle : 8.13.0  | Kotlin | Jetpack Compose
 
 
 ### Android Studio Version : 
-Android Studio Narwhal 4 Feature Drop | 2025.1.4
+Android Studio Otter | 2025.2.1
 
 &nbsp;
 
