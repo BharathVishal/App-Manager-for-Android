@@ -224,7 +224,7 @@ class MainActivityCompose : AppCompatActivity(), CoroutineScope by MainScope() {
 
     @Composable
     fun TextLicenseHeader() {
-        val text1 = "© 2025. "
+        val text1 = "© 2026. "
         val text2 = "Open Source Software"
         val text3 = " licensed with Apache-2.0 license."
         val annotatedString = buildAnnotatedString {

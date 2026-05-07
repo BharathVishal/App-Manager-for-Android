@@ -2,12 +2,12 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
 }
 
 android {
     namespace = "com.bharathvishal.appmanager"
+    buildFeatures.buildConfig = true
     compileSdk = 36
     defaultConfig {
         applicationId = "com.bharathvishal.appmanager"
@@ -16,8 +16,8 @@ android {
         }
         minSdk = 23
         targetSdk = 36
-        versionCode = 112
-        versionName = "4.6.1"
+        versionCode = 115
+        versionName = "4.6.2"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildFeatures {
@@ -36,6 +36,7 @@ android {
         release {
             isDebuggable = false
             isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
