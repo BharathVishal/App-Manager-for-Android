@@ -8,16 +8,16 @@ plugins {
 extensions.configure<ApplicationExtension> {
     namespace = "com.bharathvishal.appmanager"
     buildFeatures.buildConfig = true
-    compileSdk = 36
+    compileSdk = 37
     defaultConfig {
         applicationId = "com.bharathvishal.appmanager"
         vectorDrawables {
             useSupportLibrary = true
         }
         minSdk = 23
-        targetSdk = 36
-        versionCode = 115
-        versionName = "4.6.2"
+        targetSdk = 37
+        versionCode = 118
+        versionName = "4.7"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildFeatures {
@@ -76,7 +76,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.androidx.cardview)
     implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.material3.windowsize)
     implementation(libs.androidx.compose.material3.windowsize)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
